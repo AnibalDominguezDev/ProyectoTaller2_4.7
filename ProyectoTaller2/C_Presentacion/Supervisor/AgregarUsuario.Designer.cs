@@ -138,6 +138,7 @@
             // tbxContrasena
             // 
             this.tbxContrasena.Location = new System.Drawing.Point(199, 360);
+            this.tbxContrasena.MaxLength = 200;
             this.tbxContrasena.Name = "tbxContrasena";
             this.tbxContrasena.Size = new System.Drawing.Size(211, 20);
             this.tbxContrasena.TabIndex = 7;
@@ -156,6 +157,7 @@
             // tbxUsuario
             // 
             this.tbxUsuario.Location = new System.Drawing.Point(199, 330);
+            this.tbxUsuario.MaxLength = 40;
             this.tbxUsuario.Name = "tbxUsuario";
             this.tbxUsuario.Size = new System.Drawing.Size(211, 20);
             this.tbxUsuario.TabIndex = 6;
@@ -173,8 +175,10 @@
             // tbxDireccion
             // 
             this.tbxDireccion.Location = new System.Drawing.Point(199, 271);
+            this.tbxDireccion.MaxLength = 100;
+            this.tbxDireccion.Multiline = true;
             this.tbxDireccion.Name = "tbxDireccion";
-            this.tbxDireccion.Size = new System.Drawing.Size(211, 20);
+            this.tbxDireccion.Size = new System.Drawing.Size(211, 45);
             this.tbxDireccion.TabIndex = 5;
             // 
             // lblDireccion
@@ -209,7 +213,7 @@
             // tbxDni
             // 
             this.tbxDni.Location = new System.Drawing.Point(199, 200);
-            this.tbxDni.MaxLength = 11;
+            this.tbxDni.MaxLength = 9;
             this.tbxDni.Name = "tbxDni";
             this.tbxDni.Size = new System.Drawing.Size(211, 20);
             this.tbxDni.TabIndex = 3;
@@ -228,6 +232,7 @@
             // tbxApellido
             // 
             this.tbxApellido.Location = new System.Drawing.Point(199, 165);
+            this.tbxApellido.MaxLength = 30;
             this.tbxApellido.Name = "tbxApellido";
             this.tbxApellido.Size = new System.Drawing.Size(211, 20);
             this.tbxApellido.TabIndex = 2;
@@ -245,6 +250,7 @@
             // tbxNombre
             // 
             this.tbxNombre.Location = new System.Drawing.Point(199, 128);
+            this.tbxNombre.MaxLength = 30;
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(211, 20);
             this.tbxNombre.TabIndex = 1;
