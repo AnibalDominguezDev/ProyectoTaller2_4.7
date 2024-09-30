@@ -36,8 +36,9 @@ namespace ProyectoTaller2.C_Logica
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.Error.WriteLine(e.Message);
                 return false;
             }
             
