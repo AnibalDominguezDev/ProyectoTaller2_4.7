@@ -16,5 +16,25 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
         {
             InitializeComponent();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker5_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker6_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
