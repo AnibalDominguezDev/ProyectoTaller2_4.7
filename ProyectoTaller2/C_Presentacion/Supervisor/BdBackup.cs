@@ -16,5 +16,16 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
         {
             InitializeComponent();
         }
+
+        private void btnGuardarUbicacion_Click(object sender, EventArgs e)
+        {
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK) tbxGuardarEn.Text = folderBrowserDialog.SelectedPath;
+        }
+
+        private void btnRestaurarUbicacion_Click_1(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK) tbxRestaurarDesde.Text = openFileDialog.FileName;
+        }
     }
 }
