@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5AB8A68B-3E4B-4951-85BE-E82F0FA23C06}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ProyectoTaller2</RootNamespace>
+    <AssemblyName>ProyectoTaller2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C_Datos\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Datos\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Datos\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="C_Datos\rol_usuario.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Datos\usuarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Logica\Usuarios.cs" />
+    <Compile Include="C_Presentacion\Administrador\AgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\AgregarProducto.Designer.cs">
+      <DependentUpon>AgregarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\AgregarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\AgregarProveedor.Designer.cs">
+      <DependentUpon>AgregarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\DetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\DetalleVenta.Designer.cs">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\EditarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\EditarProducto.Designer.cs">
+      <DependentUpon>EditarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\EditarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\EditarProveedor.Designer.cs">
+      <DependentUpon>EditarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\EstadisticasVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\EstadisticasVentas.Designer.cs">
+      <DependentUpon>EstadisticasVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\FormPrincipalAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\FormPrincipalAdmin.Designer.cs">
+      <DependentUpon>FormPrincipalAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\GestionClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\GestionClientes.Designer.cs">
+      <DependentUpon>GestionClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\GestionProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\GestionProveedores.Designer.cs">
+      <DependentUpon>GestionProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\ListarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\ListarProductos.Designer.cs">
+      <DependentUpon>ListarProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\ListarVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Administrador\ListarVentas.Designer.cs">
+      <DependentUpon>ListarVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Login\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Login\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Supervisor\AgregarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Supervisor\AgregarUsuario.Designer.cs">
+      <DependentUpon>AgregarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Supervisor\BdBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Supervisor\BdBackup.Designer.cs">
+      <DependentUpon>BdBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Supervisor\EditarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Supervisor\EditarUsuario.Designer.cs">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Supervisor\FormPrincipalSupervisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Supervisor\FormPrincipalSupervisor.Designer.cs">
+      <DependentUpon>FormPrincipalSupervisor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Supervisor\ListarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Supervisor\ListarUsuarios.Designer.cs">
+      <DependentUpon>ListarUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Validador.cs" />
+    <Compile Include="C_Presentacion\Vendedor\AltaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\AltaCliente.Designer.cs">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\ListarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\ListarProductos.Designer.cs">
+      <DependentUpon>ListarProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\ListarVentasRealizadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\ListarVentasRealizadas.Designer.cs">
+      <DependentUpon>ListarVentasRealizadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\MenuVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\MenuVendedor.Designer.cs">
+      <DependentUpon>MenuVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\RealizarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\RealizarVenta.Designer.cs">
+      <DependentUpon>RealizarVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="C_Presentacion\Administrador\AgregarProducto.resx">
+      <DependentUpon>AgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Administrador\AgregarProveedor.resx">
+      <DependentUpon>AgregarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Administrador\DetalleVenta.resx">
+      <DependentUpon>DetalleVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Administrador\EditarProducto.resx">
+      <DependentUpon>EditarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Administrador\EditarProveedor.resx">
+      <DependentUpon>EditarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Administrador\EstadisticasVentas.resx">
+      <DependentUpon>EstadisticasVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Administrador\FormPrincipalAdmin.resx">
+      <DependentUpon>FormPrincipalAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Administrador\GestionClientes.resx">
+      <DependentUpon>GestionClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Administrador\GestionProveedores.resx">
+      <DependentUpon>GestionProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Administrador\ListarProductos.resx">
+      <DependentUpon>ListarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Administrador\ListarVentas.resx">
+      <DependentUpon>ListarVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Login\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Supervisor\AgregarUsuario.resx">
+      <DependentUpon>AgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Supervisor\BdBackup.resx">
+      <DependentUpon>BdBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Supervisor\EditarUsuario.resx">
+      <DependentUpon>EditarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Supervisor\FormPrincipalSupervisor.resx">
+      <DependentUpon>FormPrincipalSupervisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Supervisor\ListarUsuarios.resx">
+      <DependentUpon>ListarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Vendedor\AltaCliente.resx">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Vendedor\ListarProductos.resx">
+      <DependentUpon>ListarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Vendedor\ListarVentasRealizadas.resx">
+      <DependentUpon>ListarVentasRealizadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Vendedor\MenuVendedor.resx">
+      <DependentUpon>MenuVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Vendedor\RealizarVenta.resx">
+      <DependentUpon>RealizarVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EntityDeploy Include="C_Datos\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="C_Datos\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="C_Datos\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="C_Datos\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\imgFondo.jpg" />
+    <None Include="Resources\carro-de-compras-rapido.png" />
+    <None Include="Resources\lista-venta.png" />
+    <None Include="Resources\salida %281%29.png" />
+    <None Include="Resources\histograma-de-grafico.png" />
+    <None Include="Resources\proveedor %281%29.png" />
+    <None Include="Resources\usuarios.png" />
+    <None Include="Resources\caja-abierta.png" />
+    <None Include="Resources\comprobacion-de-lista.png" />
+    <None Include="Resources\agregar-usuario-small.png" />
+    <None Include="Resources\respaldo.png" />
+    <None Include="Resources\lista-de-miembros.png" />
+    <None Include="Resources\agregar-usuario-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
