@@ -56,5 +56,15 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
         {
             e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
         }
+
+        private void btnNuevaMarca_Click(object sender, EventArgs e)
+        {
+            new NuevaMarca().ShowDialog();
+        }
+
+        private void btnNuevaCategoria_Click(object sender, EventArgs e)
+        {
+            new NuevaCategoria().ShowDialog();
+        }
     }
 }

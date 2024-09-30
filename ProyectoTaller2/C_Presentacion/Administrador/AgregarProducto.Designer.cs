@@ -96,6 +96,7 @@
             this.btnNuevaCategoria.TabIndex = 28;
             this.btnNuevaCategoria.Text = "Nueva Categoria";
             this.btnNuevaCategoria.UseVisualStyleBackColor = true;
+            this.btnNuevaCategoria.Click += new System.EventHandler(this.btnNuevaCategoria_Click);
             // 
             // btnNuevaMarca
             // 
@@ -106,6 +107,7 @@
             this.btnNuevaMarca.TabIndex = 27;
             this.btnNuevaMarca.Text = "Nueva Marca";
             this.btnNuevaMarca.UseVisualStyleBackColor = true;
+            this.btnNuevaMarca.Click += new System.EventHandler(this.btnNuevaMarca_Click);
             // 
             // btnCancelar
             // 
