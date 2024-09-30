@@ -1,6 +1,6 @@
-CREATE DATABASE taller2cs;
+CREATE DATABASE TALLER2CS;
 
-use taller2cs;
+use TALLER2CS;
 
 
 
