@@ -51,5 +51,14 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
         {
             CargarFormularioEnPanel(new RealizarVenta(), panelMuestra);
         }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Seguro que desea cerrar la sesion actual?", "Cerrar sesion",
+                              MessageBoxButtons.YesNo,
+                              MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes) this.Close();
+        }
     }
 }

@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLoginIniciar = new System.Windows.Forms.Button();
+            this.lblLoginBienvenido = new System.Windows.Forms.Label();
             this.txtLoginPass = new System.Windows.Forms.TextBox();
             this.txtLoginInicio = new System.Windows.Forms.TextBox();
             this.lblLoginPass = new System.Windows.Forms.Label();
-            this.lblLoginDni = new System.Windows.Forms.Label();
-            this.lblLoginBienvenido = new System.Windows.Forms.Label();
+            this.lblLoginUsuario = new System.Windows.Forms.Label();
             this.pbxLoginInicio = new System.Windows.Forms.PictureBox();
             this.pbxFondo = new System.Windows.Forms.PictureBox();
-            this.btnLoginIniciar = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLoginInicio)).BeginInit();
@@ -53,13 +53,37 @@
             this.panel1.Controls.Add(this.txtLoginPass);
             this.panel1.Controls.Add(this.txtLoginInicio);
             this.panel1.Controls.Add(this.lblLoginPass);
-            this.panel1.Controls.Add(this.lblLoginDni);
+            this.panel1.Controls.Add(this.lblLoginUsuario);
             this.panel1.Controls.Add(this.pbxLoginInicio);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(267, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(288, 461);
             this.panel1.TabIndex = 1;
+            // 
+            // btnLoginIniciar
+            // 
+            this.btnLoginIniciar.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnLoginIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLoginIniciar.Location = new System.Drawing.Point(173, 414);
+            this.btnLoginIniciar.Name = "btnLoginIniciar";
+            this.btnLoginIniciar.Size = new System.Drawing.Size(75, 23);
+            this.btnLoginIniciar.TabIndex = 11;
+            this.btnLoginIniciar.Text = "Iniciar";
+            this.btnLoginIniciar.UseVisualStyleBackColor = false;
+            this.btnLoginIniciar.Click += new System.EventHandler(this.btnLoginIniciar_Click);
+            // 
+            // lblLoginBienvenido
+            // 
+            this.lblLoginBienvenido.AutoSize = true;
+            this.lblLoginBienvenido.BackColor = System.Drawing.Color.Transparent;
+            this.lblLoginBienvenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoginBienvenido.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblLoginBienvenido.Location = new System.Drawing.Point(59, 21);
+            this.lblLoginBienvenido.Name = "lblLoginBienvenido";
+            this.lblLoginBienvenido.Size = new System.Drawing.Size(184, 29);
+            this.lblLoginBienvenido.TabIndex = 10;
+            this.lblLoginBienvenido.Text = "¡BIENVENIDO!";
             // 
             // txtLoginPass
             // 
@@ -85,27 +109,15 @@
             this.lblLoginPass.TabIndex = 7;
             this.lblLoginPass.Text = "Contraseña";
             // 
-            // lblLoginDni
+            // lblLoginUsuario
             // 
-            this.lblLoginDni.AutoSize = true;
-            this.lblLoginDni.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F);
-            this.lblLoginDni.Location = new System.Drawing.Point(60, 276);
-            this.lblLoginDni.Name = "lblLoginDni";
-            this.lblLoginDni.Size = new System.Drawing.Size(34, 21);
-            this.lblLoginDni.TabIndex = 6;
-            this.lblLoginDni.Text = "DNI";
-            // 
-            // lblLoginBienvenido
-            // 
-            this.lblLoginBienvenido.AutoSize = true;
-            this.lblLoginBienvenido.BackColor = System.Drawing.Color.Transparent;
-            this.lblLoginBienvenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoginBienvenido.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblLoginBienvenido.Location = new System.Drawing.Point(59, 21);
-            this.lblLoginBienvenido.Name = "lblLoginBienvenido";
-            this.lblLoginBienvenido.Size = new System.Drawing.Size(184, 29);
-            this.lblLoginBienvenido.TabIndex = 10;
-            this.lblLoginBienvenido.Text = "¡BIENVENIDO!";
+            this.lblLoginUsuario.AutoSize = true;
+            this.lblLoginUsuario.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F);
+            this.lblLoginUsuario.Location = new System.Drawing.Point(60, 276);
+            this.lblLoginUsuario.Name = "lblLoginUsuario";
+            this.lblLoginUsuario.Size = new System.Drawing.Size(66, 21);
+            this.lblLoginUsuario.TabIndex = 6;
+            this.lblLoginUsuario.Text = "Usuario:";
             // 
             // pbxLoginInicio
             // 
@@ -127,18 +139,6 @@
             this.pbxFondo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbxFondo.TabIndex = 0;
             this.pbxFondo.TabStop = false;
-            // 
-            // btnLoginIniciar
-            // 
-            this.btnLoginIniciar.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnLoginIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLoginIniciar.Location = new System.Drawing.Point(173, 414);
-            this.btnLoginIniciar.Name = "btnLoginIniciar";
-            this.btnLoginIniciar.Size = new System.Drawing.Size(75, 23);
-            this.btnLoginIniciar.TabIndex = 11;
-            this.btnLoginIniciar.Text = "Iniciar";
-            this.btnLoginIniciar.UseVisualStyleBackColor = false;
-            this.btnLoginIniciar.Click += new System.EventHandler(this.btnLoginIniciar_Click);
             // 
             // errorProvider
             // 
@@ -172,7 +172,7 @@
         private System.Windows.Forms.TextBox txtLoginPass;
         private System.Windows.Forms.TextBox txtLoginInicio;
         private System.Windows.Forms.Label lblLoginPass;
-        private System.Windows.Forms.Label lblLoginDni;
+        private System.Windows.Forms.Label lblLoginUsuario;
         private System.Windows.Forms.PictureBox pbxLoginInicio;
         private System.Windows.Forms.Label lblLoginBienvenido;
         private System.Windows.Forms.Button btnLoginIniciar;

@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panelMenuVendedor = new System.Windows.Forms.Panel();
-            this.btnAltaCliente = new System.Windows.Forms.Button();
-            this.lblNomUsuario = new System.Windows.Forms.Label();
-            this.lblTituloVendedor = new System.Windows.Forms.Label();
-            this.panelMuestra = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.btnAltaCliente = new System.Windows.Forms.Button();
             this.btnRealizarVenta = new System.Windows.Forms.Button();
             this.btnMisVentas = new System.Windows.Forms.Button();
             this.btnListaProductos = new System.Windows.Forms.Button();
             this.pbxLogoV = new System.Windows.Forms.PictureBox();
+            this.lblNomUsuario = new System.Windows.Forms.Label();
+            this.lblTituloVendedor = new System.Windows.Forms.Label();
+            this.panelMuestra = new System.Windows.Forms.Panel();
             this.panelMenuVendedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogoV)).BeginInit();
             this.SuspendLayout();
@@ -59,47 +59,6 @@
             this.panelMenuVendedor.Size = new System.Drawing.Size(300, 611);
             this.panelMenuVendedor.TabIndex = 1;
             // 
-            // btnAltaCliente
-            // 
-            this.btnAltaCliente.Image = global::ProyectoTaller2.Properties.Resources.agregar_usuario_small;
-            this.btnAltaCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAltaCliente.Location = new System.Drawing.Point(34, 477);
-            this.btnAltaCliente.Name = "btnAltaCliente";
-            this.btnAltaCliente.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnAltaCliente.Size = new System.Drawing.Size(232, 47);
-            this.btnAltaCliente.TabIndex = 4;
-            this.btnAltaCliente.Text = "Alta Cliente";
-            this.btnAltaCliente.UseVisualStyleBackColor = true;
-            this.btnAltaCliente.Click += new System.EventHandler(this.btnAltaCliente_Click);
-            // 
-            // lblNomUsuario
-            // 
-            this.lblNomUsuario.AutoSize = true;
-            this.lblNomUsuario.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblNomUsuario.Location = new System.Drawing.Point(59, 248);
-            this.lblNomUsuario.Name = "lblNomUsuario";
-            this.lblNomUsuario.Size = new System.Drawing.Size(162, 19);
-            this.lblNomUsuario.TabIndex = 10;
-            this.lblNomUsuario.Text = "Conectado como: (name)";
-            // 
-            // lblTituloVendedor
-            // 
-            this.lblTituloVendedor.AutoSize = true;
-            this.lblTituloVendedor.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lblTituloVendedor.Location = new System.Drawing.Point(86, 211);
-            this.lblTituloVendedor.Name = "lblTituloVendedor";
-            this.lblTituloVendedor.Size = new System.Drawing.Size(124, 32);
-            this.lblTituloVendedor.TabIndex = 9;
-            this.lblTituloVendedor.Text = "Vendedor";
-            // 
-            // panelMuestra
-            // 
-            this.panelMuestra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMuestra.Location = new System.Drawing.Point(300, 0);
-            this.panelMuestra.Name = "panelMuestra";
-            this.panelMuestra.Size = new System.Drawing.Size(884, 611);
-            this.panelMuestra.TabIndex = 3;
-            // 
             // btnCerrarSesion
             // 
             this.btnCerrarSesion.BackColor = System.Drawing.Color.Salmon;
@@ -114,6 +73,20 @@
             this.btnCerrarSesion.TabIndex = 5;
             this.btnCerrarSesion.Text = "Cerrar sesión";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            // 
+            // btnAltaCliente
+            // 
+            this.btnAltaCliente.Image = global::ProyectoTaller2.Properties.Resources.agregar_usuario_small;
+            this.btnAltaCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAltaCliente.Location = new System.Drawing.Point(34, 477);
+            this.btnAltaCliente.Name = "btnAltaCliente";
+            this.btnAltaCliente.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnAltaCliente.Size = new System.Drawing.Size(232, 47);
+            this.btnAltaCliente.TabIndex = 4;
+            this.btnAltaCliente.Text = "Alta Cliente";
+            this.btnAltaCliente.UseVisualStyleBackColor = true;
+            this.btnAltaCliente.Click += new System.EventHandler(this.btnAltaCliente_Click);
             // 
             // btnRealizarVenta
             // 
@@ -163,6 +136,34 @@
             this.pbxLogoV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxLogoV.TabIndex = 11;
             this.pbxLogoV.TabStop = false;
+            // 
+            // lblNomUsuario
+            // 
+            this.lblNomUsuario.AutoSize = true;
+            this.lblNomUsuario.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblNomUsuario.Location = new System.Drawing.Point(59, 248);
+            this.lblNomUsuario.Name = "lblNomUsuario";
+            this.lblNomUsuario.Size = new System.Drawing.Size(162, 19);
+            this.lblNomUsuario.TabIndex = 10;
+            this.lblNomUsuario.Text = "Conectado como: (name)";
+            // 
+            // lblTituloVendedor
+            // 
+            this.lblTituloVendedor.AutoSize = true;
+            this.lblTituloVendedor.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lblTituloVendedor.Location = new System.Drawing.Point(86, 211);
+            this.lblTituloVendedor.Name = "lblTituloVendedor";
+            this.lblTituloVendedor.Size = new System.Drawing.Size(124, 32);
+            this.lblTituloVendedor.TabIndex = 9;
+            this.lblTituloVendedor.Text = "Vendedor";
+            // 
+            // panelMuestra
+            // 
+            this.panelMuestra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMuestra.Location = new System.Drawing.Point(300, 0);
+            this.panelMuestra.Name = "panelMuestra";
+            this.panelMuestra.Size = new System.Drawing.Size(884, 611);
+            this.panelMuestra.TabIndex = 3;
             // 
             // MenuVendedor
             // 
