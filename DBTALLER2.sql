@@ -23,6 +23,7 @@ CREATE TABLE usuarios(
 	usuario VARCHAR(40) NOT NULL,
 	contrasena VARCHAR (200) NOT NULL,
 	rol_id INT NOT NULL,
+	fecha_alta DATETIME DEFAULT (getdate()),
 	CONSTRAINT PK_USUARIO PRIMARY KEY (id_usuario),
 	CONSTRAINT FK_ROL FOREIGN KEY (rol_id) REFERENCES rol_usuario(id_rol),
 	CONSTRAINT DNI_UNIQUE UNIQUE (dni),
