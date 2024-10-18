@@ -12,28 +12,24 @@ namespace ProyectoTaller2.C_Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class usuarios
+    public partial class clientes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public usuarios()
+        public clientes()
         {
             this.ventas = new HashSet<ventas>();
         }
     
-        public int id_usuario { get; set; }
+        public int id_cliente { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
-        public int dni { get; set; }
+        public string dni { get; set; }
         public string telefono { get; set; }
         public string direccion { get; set; }
-        public string usuario { get; set; }
-        public string contrasena { get; set; }
-        public int rol_id { get; set; }
-        public int estadoUsuario { get; set; }
-        public Nullable<System.DateTime> fecha_alta { get; set; }
-        public int esta_activo { get; set; }
+        public string correo { get; set; }
+        public int estado_cliente { get; set; }
+        public Nullable<System.DateTime> create_at { get; set; }
     
-        public virtual rol_usuario rol_usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ventas> ventas { get; set; }
     }

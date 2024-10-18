@@ -7,14 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoTaller2.C_Logica;
 
 namespace ProyectoTaller2.C_Presentacion.Supervisor
 {
     public partial class EditarUsuario : Form
     {
-        public EditarUsuario()
+
+        private int userId;
+        public EditarUsuario(int userId)
         {
             InitializeComponent();
+            this.userId = userId;
+        }
+
+        private void rellenarCampos()
+        {
+            Usuarios user = new Usuarios().ObtenerUsuarioPorId(this.userId);
+
+            tbxNombre.Text = user.getNombre();
+            tbxApellido.Text = user.getApellido();
+            tbxDni.Text = user.getDni().ToString();
+            tbxTelefono.Text = user.getTelefono();
+
+
+
+
+
         }
         private bool todosLosCamposValidos()
         {
@@ -41,6 +60,11 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
                             MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes) this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            rellenarCampos();
         }
     }
 }
