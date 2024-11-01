@@ -28,31 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRecargarLista = new System.Windows.Forms.Button();
             this.btnAplicar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.cbxFiltroRol = new System.Windows.Forms.ComboBox();
             this.tbxBuscar = new System.Windows.Forms.TextBox();
             this.cbxFiltroBuscar = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.lblUsuarios = new System.Windows.Forms.Label();
-            this.dgbDetalleProductos = new System.Windows.Forms.DataGridView();
+            this.dgbUsuarios = new System.Windows.Forms.DataGridView();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbDetalleProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.panelHeader.Controls.Add(this.button2);
-            this.panelHeader.Controls.Add(this.button1);
+            this.panelHeader.Controls.Add(this.btnRecargarLista);
             this.panelHeader.Controls.Add(this.btnAplicar);
             this.panelHeader.Controls.Add(this.btnBuscar);
-            this.panelHeader.Controls.Add(this.textBox2);
             this.panelHeader.Controls.Add(this.cbxFiltroRol);
             this.panelHeader.Controls.Add(this.tbxBuscar);
             this.panelHeader.Controls.Add(this.cbxFiltroBuscar);
@@ -64,26 +63,17 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(880, 100);
             this.panelHeader.TabIndex = 2;
+            this.panelHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHeader_Paint);
             // 
-            // button2
+            // btnRecargarLista
             // 
-            this.button2.Location = new System.Drawing.Point(256, 42);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 31);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "testEditar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(18, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 31);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "testEditar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRecargarLista.Location = new System.Drawing.Point(18, 52);
+            this.btnRecargarLista.Name = "btnRecargarLista";
+            this.btnRecargarLista.Size = new System.Drawing.Size(93, 31);
+            this.btnRecargarLista.TabIndex = 10;
+            this.btnRecargarLista.Text = "Recargar";
+            this.btnRecargarLista.UseVisualStyleBackColor = true;
+            this.btnRecargarLista.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAplicar
             // 
@@ -105,19 +95,12 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(677, 55);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 7;
-            // 
             // cbxFiltroRol
             // 
             this.cbxFiltroRol.FormattingEnabled = true;
-            this.cbxFiltroRol.Location = new System.Drawing.Point(574, 54);
+            this.cbxFiltroRol.Location = new System.Drawing.Point(677, 52);
             this.cbxFiltroRol.Name = "cbxFiltroRol";
-            this.cbxFiltroRol.Size = new System.Drawing.Size(97, 21);
+            this.cbxFiltroRol.Size = new System.Drawing.Size(100, 21);
             this.cbxFiltroRol.TabIndex = 6;
             // 
             // tbxBuscar
@@ -126,6 +109,7 @@
             this.tbxBuscar.Name = "tbxBuscar";
             this.tbxBuscar.Size = new System.Drawing.Size(100, 20);
             this.tbxBuscar.TabIndex = 5;
+            this.tbxBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxBuscar_KeyPress);
             // 
             // cbxFiltroBuscar
             // 
@@ -137,12 +121,13 @@
             this.cbxFiltroBuscar.Name = "cbxFiltroBuscar";
             this.cbxFiltroBuscar.Size = new System.Drawing.Size(97, 21);
             this.cbxFiltroBuscar.TabIndex = 4;
+            this.cbxFiltroBuscar.SelectedIndexChanged += new System.EventHandler(this.cbxFiltroBuscar_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F);
-            this.label1.Location = new System.Drawing.Point(481, 52);
+            this.label1.Location = new System.Drawing.Point(591, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 21);
             this.label1.TabIndex = 3;
@@ -168,19 +153,23 @@
             this.lblUsuarios.TabIndex = 1;
             this.lblUsuarios.Text = "Usuarios";
             // 
-            // dgbDetalleProductos
+            // dgbUsuarios
             // 
-            this.dgbDetalleProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(247)))));
-            this.dgbDetalleProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgbDetalleProductos.ColumnHeadersHeight = 40;
-            this.dgbDetalleProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgbDetalleProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgbDetalleProductos.Location = new System.Drawing.Point(3, 116);
-            this.dgbDetalleProductos.Name = "dgbDetalleProductos";
-            this.dgbDetalleProductos.RowHeadersVisible = false;
-            this.dgbDetalleProductos.Size = new System.Drawing.Size(865, 462);
-            this.dgbDetalleProductos.TabIndex = 11;
-            this.dgbDetalleProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbDetalleProductos_CellClick);
+            this.dgbUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(247)))));
+            this.dgbUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgbUsuarios.ColumnHeadersHeight = 40;
+            this.dgbUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgbUsuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgbUsuarios.Location = new System.Drawing.Point(3, 116);
+            this.dgbUsuarios.Name = "dgbUsuarios";
+            this.dgbUsuarios.RowHeadersVisible = false;
+            this.dgbUsuarios.Size = new System.Drawing.Size(865, 462);
+            this.dgbUsuarios.TabIndex = 11;
+            this.dgbUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbDetalleProductos_CellClick);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // ListarUsuarios
             // 
@@ -188,7 +177,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(880, 600);
-            this.Controls.Add(this.dgbDetalleProductos);
+            this.Controls.Add(this.dgbUsuarios);
             this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListarUsuarios";
@@ -196,7 +185,8 @@
             this.Load += new System.EventHandler(this.ListarUsuarios_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbDetalleProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,15 +196,14 @@
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Button btnAplicar;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ComboBox cbxFiltroRol;
         private System.Windows.Forms.TextBox tbxBuscar;
         private System.Windows.Forms.ComboBox cbxFiltroBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.Label lblUsuarios;
-        private System.Windows.Forms.DataGridView dgbDetalleProductos;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dgbUsuarios;
+        private System.Windows.Forms.Button btnRecargarLista;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

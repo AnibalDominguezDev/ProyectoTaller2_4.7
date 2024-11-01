@@ -182,6 +182,7 @@
             this.Name = "EditarProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditarProveedor";
+            this.Load += new System.EventHandler(this.EditarProveedor_Load);
             this.panelFondo.ResumeLayout(false);
             this.panelFondo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

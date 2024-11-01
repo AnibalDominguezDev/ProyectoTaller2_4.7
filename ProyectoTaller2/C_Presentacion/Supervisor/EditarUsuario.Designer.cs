@@ -50,6 +50,8 @@
             this.tbxNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cbxEstado = new System.Windows.Forms.ComboBox();
+            this.lblActivo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +59,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.lblActivo);
+            this.panel1.Controls.Add(this.cbxEstado);
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.btnAgregar);
             this.panel1.Controls.Add(this.lblEditarUsuario);
@@ -101,7 +105,7 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(110, 33);
             this.btnAgregar.TabIndex = 9;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "Editar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -118,6 +122,10 @@
             // cbxRol
             // 
             this.cbxRol.FormattingEnabled = true;
+            this.cbxRol.Items.AddRange(new object[] {
+            "Vendedor",
+            "Administrador",
+            "Supervisor"});
             this.cbxRol.Location = new System.Drawing.Point(199, 422);
             this.cbxRol.Name = "cbxRol";
             this.cbxRol.Size = new System.Drawing.Size(211, 21);
@@ -259,6 +267,27 @@
             this.errorProvider.BlinkRate = 300;
             this.errorProvider.ContainerControl = this;
             // 
+            // cbxEstado
+            // 
+            this.cbxEstado.FormattingEnabled = true;
+            this.cbxEstado.Items.AddRange(new object[] {
+            "Verdadero",
+            "Falso"});
+            this.cbxEstado.Location = new System.Drawing.Point(199, 449);
+            this.cbxEstado.Name = "cbxEstado";
+            this.cbxEstado.Size = new System.Drawing.Size(211, 21);
+            this.cbxEstado.TabIndex = 20;
+            // 
+            // lblActivo
+            // 
+            this.lblActivo.AutoSize = true;
+            this.lblActivo.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F);
+            this.lblActivo.Location = new System.Drawing.Point(86, 449);
+            this.lblActivo.Name = "lblActivo";
+            this.lblActivo.Size = new System.Drawing.Size(64, 24);
+            this.lblActivo.TabIndex = 21;
+            this.lblActivo.Text = "Activo:";
+            // 
             // EditarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,6 +300,7 @@
             this.Name = "EditarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Usuario";
+            this.Load += new System.EventHandler(this.EditarUsuario_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -301,5 +331,7 @@
         private System.Windows.Forms.TextBox tbxNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label lblActivo;
+        private System.Windows.Forms.ComboBox cbxEstado;
     }
 }

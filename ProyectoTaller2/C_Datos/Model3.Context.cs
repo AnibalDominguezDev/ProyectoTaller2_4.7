@@ -32,5 +32,7 @@ namespace ProyectoTaller2.C_Datos
         public virtual DbSet<usuarios> usuarios { get; set; }
         public virtual DbSet<venta_detalle> venta_detalle { get; set; }
         public virtual DbSet<ventas> ventas { get; set; }
+        public virtual DbSet<marcas> marcas { get; set; }
+        public virtual DbSet<proveedores> proveedores { get; set; }
     }
 }

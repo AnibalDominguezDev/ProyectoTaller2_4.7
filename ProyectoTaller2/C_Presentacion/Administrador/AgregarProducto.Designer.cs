@@ -52,6 +52,8 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblAgregarProducto = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tbxPrecio = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelFondo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +61,8 @@
             // panelFondo
             // 
             this.panelFondo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.panelFondo.Controls.Add(this.label1);
+            this.panelFondo.Controls.Add(this.tbxPrecio);
             this.panelFondo.Controls.Add(this.btnNuevaCategoria);
             this.panelFondo.Controls.Add(this.btnNuevaMarca);
             this.panelFondo.Controls.Add(this.btnCancelar);
@@ -181,7 +185,7 @@
             // tbxStockMinimo
             // 
             this.tbxStockMinimo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.tbxStockMinimo.Location = new System.Drawing.Point(176, 439);
+            this.tbxStockMinimo.Location = new System.Drawing.Point(176, 465);
             this.tbxStockMinimo.Name = "tbxStockMinimo";
             this.tbxStockMinimo.Size = new System.Drawing.Size(242, 25);
             this.tbxStockMinimo.TabIndex = 19;
@@ -190,7 +194,7 @@
             // tbxStock
             // 
             this.tbxStock.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.tbxStock.Location = new System.Drawing.Point(176, 394);
+            this.tbxStock.Location = new System.Drawing.Point(176, 421);
             this.tbxStock.Name = "tbxStock";
             this.tbxStock.Size = new System.Drawing.Size(242, 25);
             this.tbxStock.TabIndex = 11;
@@ -209,7 +213,7 @@
             // lblStockMinimo
             // 
             this.lblStockMinimo.AutoSize = true;
-            this.lblStockMinimo.Location = new System.Drawing.Point(52, 438);
+            this.lblStockMinimo.Location = new System.Drawing.Point(52, 466);
             this.lblStockMinimo.Name = "lblStockMinimo";
             this.lblStockMinimo.Size = new System.Drawing.Size(128, 24);
             this.lblStockMinimo.TabIndex = 8;
@@ -218,7 +222,7 @@
             // lblStock
             // 
             this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(52, 395);
+            this.lblStock.Location = new System.Drawing.Point(52, 422);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(115, 24);
             this.lblStock.TabIndex = 7;
@@ -292,6 +296,24 @@
             this.errorProvider.BlinkRate = 300;
             this.errorProvider.ContainerControl = this;
             // 
+            // tbxPrecio
+            // 
+            this.tbxPrecio.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.tbxPrecio.Location = new System.Drawing.Point(176, 390);
+            this.tbxPrecio.Name = "tbxPrecio";
+            this.tbxPrecio.Size = new System.Drawing.Size(242, 25);
+            this.tbxPrecio.TabIndex = 29;
+            this.tbxPrecio.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(52, 389);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 24);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Precio:";
+            // 
             // AgregarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,6 +326,7 @@
             this.Name = "AgregarProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Producto";
+            this.Load += new System.EventHandler(this.AgregarProducto_Load);
             this.panelFondo.ResumeLayout(false);
             this.panelFondo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -336,5 +359,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbxPrecio;
     }
 }

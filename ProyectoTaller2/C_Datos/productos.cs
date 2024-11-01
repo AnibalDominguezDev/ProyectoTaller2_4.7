@@ -29,9 +29,14 @@ namespace ProyectoTaller2.C_Datos
         public int id_categoria { get; set; }
         public Nullable<System.DateTime> create_at { get; set; }
         public int estado_producto { get; set; }
+        public int id_marca { get; set; }
+        public int id_proveedor { get; set; }
+        public string cod_producto { get; set; }
     
         public virtual categoria_productos categoria_productos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<venta_detalle> venta_detalle { get; set; }
+        public virtual marcas marcas { get; set; }
+        public virtual proveedores proveedores { get; set; }
     }
 }

@@ -26,6 +26,13 @@
           <Property Name="estado_cliente" Type="int" Nullable="false" />
           <Property Name="create_at" Type="datetime" />
         </EntityType>
+        <EntityType Name="marcas">
+          <Key>
+            <PropertyRef Name="id_marca" />
+          </Key>
+          <Property Name="id_marca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="productos">
           <Key>
             <PropertyRef Name="id_producto" />
@@ -39,6 +46,19 @@
           <Property Name="id_categoria" Type="int" Nullable="false" />
           <Property Name="create_at" Type="datetime" />
           <Property Name="estado_producto" Type="int" Nullable="false" />
+          <Property Name="id_marca" Type="int" Nullable="false" />
+          <Property Name="id_proveedor" Type="int" Nullable="false" />
+          <Property Name="cod_producto" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="proveedores">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="60" Nullable="false" />
         </EntityType>
         <EntityType Name="rol_usuario">
           <Key>
@@ -108,6 +128,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PRODUCTO_MARCA">
+          <End Role="marcas" Type="Self.marcas" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marcas">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="id_marca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTO_PROVEEDOR">
+          <End Role="proveedores" Type="Self.proveedores" Multiplicity="1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedores">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PRODUCTO_VENTA">
           <End Role="productos" Type="Self.productos" Multiplicity="1" />
           <End Role="venta_detalle" Type="Self.venta_detalle" Multiplicity="*" />
@@ -159,7 +203,9 @@
         <EntityContainer Name="TALLER2CSModel1StoreContainer">
           <EntitySet Name="categoria_productos" EntityType="Self.categoria_productos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="clientes" EntityType="Self.clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="marcas" EntityType="Self.marcas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="productos" EntityType="Self.productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proveedores" EntityType="Self.proveedores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="rol_usuario" EntityType="Self.rol_usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="venta_detalle" EntityType="Self.venta_detalle" Schema="dbo" store:Type="Tables" />
@@ -171,6 +217,14 @@
           <AssociationSet Name="FK_CLIENTE_VENTA" Association="Self.FK_CLIENTE_VENTA">
             <End Role="clientes" EntitySet="clientes" />
             <End Role="ventas" EntitySet="ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTO_MARCA" Association="Self.FK_PRODUCTO_MARCA">
+            <End Role="marcas" EntitySet="marcas" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTO_PROVEEDOR" Association="Self.FK_PRODUCTO_PROVEEDOR">
+            <End Role="proveedores" EntitySet="proveedores" />
+            <End Role="productos" EntitySet="productos" />
           </AssociationSet>
           <AssociationSet Name="FK_PRODUCTO_VENTA" Association="Self.FK_PRODUCTO_VENTA">
             <End Role="productos" EntitySet="productos" />
@@ -231,6 +285,11 @@
           <Property Name="estado_producto" Type="Int32" Nullable="false" />
           <NavigationProperty Name="categoria_productos" Relationship="Self.FK_CATEGORIA_PRODUCTO" FromRole="productos" ToRole="categoria_productos" />
           <NavigationProperty Name="venta_detalle" Relationship="Self.FK_PRODUCTO_VENTA" FromRole="productos" ToRole="venta_detalle" />
+          <Property Name="id_marca" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="marcas" Relationship="TALLER2CSModel1.FK_PRODUCTO_MARCA" FromRole="productos" ToRole="marcas" />
+          <Property Name="id_proveedor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="proveedores" Relationship="TALLER2CSModel1.FK_PRODUCTO_PROVEEDOR" FromRole="productos" ToRole="proveedores" />
+          <Property Name="cod_producto" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="rol_usuario">
           <Key>
@@ -388,7 +447,60 @@
             <End Role="ventas" EntitySet="ventas" />
             <End Role="venta_detalle" EntitySet="venta_detalle" />
           </AssociationSet>
+          <EntitySet Name="marcas" EntityType="TALLER2CSModel1.marcas" />
+          <AssociationSet Name="FK_PRODUCTO_MARCA" Association="TALLER2CSModel1.FK_PRODUCTO_MARCA">
+            <End Role="marcas" EntitySet="marcas" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <EntitySet Name="proveedores" EntityType="TALLER2CSModel1.proveedores" />
+          <AssociationSet Name="FK_PRODUCTO_PROVEEDOR" Association="TALLER2CSModel1.FK_PRODUCTO_PROVEEDOR">
+            <End Role="proveedores" EntitySet="proveedores" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="marcas">
+          <Key>
+            <PropertyRef Name="id_marca" />
+          </Key>
+          <Property Name="id_marca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="productos" Relationship="TALLER2CSModel1.FK_PRODUCTO_MARCA" FromRole="marcas" ToRole="productos" />
+        </EntityType>
+        <Association Name="FK_PRODUCTO_MARCA">
+          <End Type="TALLER2CSModel1.marcas" Role="marcas" Multiplicity="1" />
+          <End Type="TALLER2CSModel1.productos" Role="productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marcas">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="id_marca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="proveedores">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="productos" Relationship="TALLER2CSModel1.FK_PRODUCTO_PROVEEDOR" FromRole="proveedores" ToRole="productos" />
+        </EntityType>
+        <Association Name="FK_PRODUCTO_PROVEEDOR">
+          <End Type="TALLER2CSModel1.proveedores" Role="proveedores" Multiplicity="1" />
+          <End Type="TALLER2CSModel1.productos" Role="productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedores">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -421,6 +533,9 @@
           <EntitySetMapping Name="productos">
             <EntityTypeMapping TypeName="TALLER2CSModel1.productos">
               <MappingFragment StoreEntitySet="productos">
+                <ScalarProperty Name="cod_producto" ColumnName="cod_producto" />
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
                 <ScalarProperty Name="id_producto" ColumnName="id_producto" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -478,6 +593,25 @@
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="precio_total" ColumnName="precio_total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marcas">
+            <EntityTypeMapping TypeName="TALLER2CSModel1.marcas">
+              <MappingFragment StoreEntitySet="marcas">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proveedores">
+            <EntityTypeMapping TypeName="TALLER2CSModel1.proveedores">
+              <MappingFragment StoreEntitySet="proveedores">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

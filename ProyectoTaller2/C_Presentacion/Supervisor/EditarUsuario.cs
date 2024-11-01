@@ -29,9 +29,12 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
             tbxApellido.Text = user.getApellido();
             tbxDni.Text = user.getDni().ToString();
             tbxTelefono.Text = user.getTelefono();
+            tbxDireccion.Text = user.getDireccion();
+            tbxUsuario.Text = user.getUsuario();
+            tbxContrasena.Text = user.getContrasena();
 
-
-
+            cbxRol.SelectedIndex = user.getRol()-1;
+            cbxEstado.SelectedIndex = user.getEstado()-1;
 
 
         }
@@ -50,7 +53,37 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (this.todosLosCamposValidos()) return;
+            if (this.todosLosCamposValidos())
+            {
+
+                var result = MessageBox.Show("Seguro que desea editar el usuario?", "Confirmar cambios",
+                           MessageBoxButtons.YesNo,
+                           MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes && 
+                    (Usuarios.editarUsuario
+                    (this.userId,
+                    tbxNombre.Text,
+                    tbxApellido.Text,
+                    tbxDni.Text,
+                    tbxTelefono.Text,
+                    tbxDireccion.Text,
+                    tbxUsuario.Text,
+                    tbxContrasena.Text,
+                    cbxRol.SelectedIndex+1,
+                    cbxEstado.SelectedIndex+1
+                    )))
+                {
+                    MessageBox.Show("Usuario editado correctamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                } else
+                {
+                    MessageBox.Show("Error");
+                }
+                
+
+            }
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -63,6 +96,11 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            //rellenarCampos();
+        }
+
+        private void EditarUsuario_Load(object sender, EventArgs e)
         {
             rellenarCampos();
         }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.testEditar = new System.Windows.Forms.Button();
             this.btnNuevoProveedor = new System.Windows.Forms.Button();
             this.btnAplicar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -39,16 +40,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.lblAgregarProducto = new System.Windows.Forms.Label();
-            this.dgbDetalleProductos = new System.Windows.Forms.DataGridView();
-            this.ColFechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColEditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.testEditar = new System.Windows.Forms.Button();
+            this.dgbListarProveedores = new System.Windows.Forms.DataGridView();
             this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbDetalleProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbListarProveedores)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -70,6 +64,16 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(880, 100);
             this.panelHeader.TabIndex = 1;
+            // 
+            // testEditar
+            // 
+            this.testEditar.Location = new System.Drawing.Point(143, 55);
+            this.testEditar.Name = "testEditar";
+            this.testEditar.Size = new System.Drawing.Size(107, 24);
+            this.testEditar.TabIndex = 11;
+            this.testEditar.Text = "test Editar";
+            this.testEditar.UseVisualStyleBackColor = true;
+            this.testEditar.Click += new System.EventHandler(this.testEditar_Click);
             // 
             // btnNuevoProveedor
             // 
@@ -159,71 +163,19 @@
             this.lblAgregarProducto.TabIndex = 1;
             this.lblAgregarProducto.Text = "Gestionar proveedores";
             // 
-            // dgbDetalleProductos
+            // dgbListarProveedores
             // 
-            this.dgbDetalleProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(247)))));
-            this.dgbDetalleProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgbDetalleProductos.ColumnHeadersHeight = 40;
-            this.dgbDetalleProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgbDetalleProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColFechaAlta,
-            this.colNombre,
-            this.ColDireccion,
-            this.ColTelefono,
-            this.colEmail,
-            this.ColEditar});
-            this.dgbDetalleProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgbDetalleProductos.Location = new System.Drawing.Point(3, 106);
-            this.dgbDetalleProductos.Name = "dgbDetalleProductos";
-            this.dgbDetalleProductos.RowHeadersVisible = false;
-            this.dgbDetalleProductos.Size = new System.Drawing.Size(865, 462);
-            this.dgbDetalleProductos.TabIndex = 4;
-            // 
-            // ColFechaAlta
-            // 
-            this.ColFechaAlta.HeaderText = "Fecha de Alta";
-            this.ColFechaAlta.Name = "ColFechaAlta";
-            this.ColFechaAlta.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // colNombre
-            // 
-            this.colNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.Name = "colNombre";
-            // 
-            // ColDireccion
-            // 
-            this.ColDireccion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColDireccion.HeaderText = "Dirección";
-            this.ColDireccion.Name = "ColDireccion";
-            // 
-            // ColTelefono
-            // 
-            this.ColTelefono.HeaderText = "Telefono";
-            this.ColTelefono.Name = "ColTelefono";
-            this.ColTelefono.Width = 120;
-            // 
-            // colEmail
-            // 
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.Name = "colEmail";
-            // 
-            // ColEditar
-            // 
-            this.ColEditar.HeaderText = "Editar";
-            this.ColEditar.Name = "ColEditar";
-            this.ColEditar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColEditar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // testEditar
-            // 
-            this.testEditar.Location = new System.Drawing.Point(143, 55);
-            this.testEditar.Name = "testEditar";
-            this.testEditar.Size = new System.Drawing.Size(107, 24);
-            this.testEditar.TabIndex = 11;
-            this.testEditar.Text = "test Editar";
-            this.testEditar.UseVisualStyleBackColor = true;
-            this.testEditar.Click += new System.EventHandler(this.testEditar_Click);
+            this.dgbListarProveedores.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(247)))));
+            this.dgbListarProveedores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgbListarProveedores.ColumnHeadersHeight = 40;
+            this.dgbListarProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgbListarProveedores.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgbListarProveedores.Location = new System.Drawing.Point(3, 106);
+            this.dgbListarProveedores.Name = "dgbListarProveedores";
+            this.dgbListarProveedores.RowHeadersVisible = false;
+            this.dgbListarProveedores.Size = new System.Drawing.Size(865, 462);
+            this.dgbListarProveedores.TabIndex = 4;
+            this.dgbListarProveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbListarProveedores_CellClick);
             // 
             // GestionProveedores
             // 
@@ -231,7 +183,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(880, 600);
-            this.Controls.Add(this.dgbDetalleProductos);
+            this.Controls.Add(this.dgbListarProveedores);
             this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionProveedores";
@@ -239,7 +191,7 @@
             this.Text = "GestionProveedores";
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbDetalleProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbListarProveedores)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,13 +209,7 @@
         private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.Label lblAgregarProducto;
         private System.Windows.Forms.Button btnNuevoProveedor;
-        private System.Windows.Forms.DataGridView dgbDetalleProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFechaAlta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
-        private System.Windows.Forms.DataGridViewButtonColumn ColEditar;
+        private System.Windows.Forms.DataGridView dgbListarProveedores;
         private System.Windows.Forms.Button testEditar;
     }
 }

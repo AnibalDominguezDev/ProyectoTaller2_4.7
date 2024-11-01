@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoTaller2.C_Logica;
 
 namespace ProyectoTaller2.C_Presentacion.Administrador
 {
@@ -21,7 +22,13 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Validador validador = new Validador();
-            if (validador.validarCampo(errorProvider, tbxNombre)) return;
+            if (validador.validarCampo(errorProvider, tbxNombre))
+            {
+                if (Categorias.nuevaCategoria(tbxNombre.Text))
+                {
+                    MessageBox.Show("exito!");
+                }
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

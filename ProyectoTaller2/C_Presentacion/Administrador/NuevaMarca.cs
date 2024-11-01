@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoTaller2.C_Logica;
 
 namespace ProyectoTaller2.C_Presentacion.Administrador
 {
@@ -30,7 +31,13 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
         {
             Validador validador = new Validador();
 
-            if (validador.validarCampo(errorProvider,tbxNombre)) return;
+            if (validador.validarCampo(errorProvider, tbxNombre))
+            {
+                if (Marcas.nuevaMarca(tbxNombre.Text))
+                {
+                    MessageBox.Show("Exito");
+                }
+            } ;
         }
     }
 }
