@@ -29,9 +29,28 @@ namespace ProyectoTaller2.C_Logica
         public string getDireccion() { return this.direccion; }
         public string getEmail() { return this.email; }
         public string getTelefono() { return this.telefono; }
+
+        public static object listarProveedoresHabilitados()
+        {
+            return DProveedores.getEnabledSuppliers();
+        }
         public static object listarProveedores()
         {
             return DProveedores.getAllSuppliers();
+        }
+
+        public static bool nuevoProveedor(string nombre, string direccion, string email, string telefono)
+        {
+            proveedores nuevo = new proveedores();
+
+            nuevo.nombre = nombre;
+            nuevo.email = email;
+            nuevo.telefono = telefono;
+            nuevo.direccion = direccion;
+            nuevo.estado_proveedor = 1;
+
+            return DProveedores.newSupplier(nuevo);
+
         }
 
         public static bool editarProveedor(int id,string nombre,string direccion, string telefono, string email)
@@ -53,6 +72,11 @@ namespace ProyectoTaller2.C_Logica
 
             return new Proveedores(editar.nombre,editar.direccion,editar.email,editar.telefono);
 
+        }
+
+        public static bool cambiarEstadoProveedor(int id)
+        {
+            return DProveedores.changeSupplierState(id);
         }
 
         

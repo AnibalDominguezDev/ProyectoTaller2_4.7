@@ -34,7 +34,7 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
             tbxContrasena.Text = user.getContrasena();
 
             cbxRol.SelectedIndex = user.getRol()-1;
-            cbxEstado.SelectedIndex = user.getEstado()-1;
+            
 
 
         }
@@ -70,8 +70,8 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
                     tbxDireccion.Text,
                     tbxUsuario.Text,
                     tbxContrasena.Text,
-                    cbxRol.SelectedIndex+1,
-                    cbxEstado.SelectedIndex+1
+                    cbxRol.SelectedIndex+1
+            
                     )))
                 {
                     MessageBox.Show("Usuario editado correctamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -66,6 +66,7 @@
     <Compile Include="C_Datos\DProductos.cs" />
     <Compile Include="C_Datos\DProveedores.cs" />
     <Compile Include="C_Datos\DUsuarios.cs" />
+    <Compile Include="C_Datos\DVentas.cs" />
     <Compile Include="C_Datos\marcas.cs">
       <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
@@ -123,6 +124,7 @@
     <Compile Include="C_Logica\Productos.cs" />
     <Compile Include="C_Logica\Proveedores.cs" />
     <Compile Include="C_Logica\Usuarios.cs" />
+    <Compile Include="C_Logica\Ventas.cs" />
     <Compile Include="C_Presentacion\Administrador\AgregarProducto.cs">
       <SubType>Form</SubType>
     </Compile>

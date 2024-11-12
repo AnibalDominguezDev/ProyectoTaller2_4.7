@@ -166,6 +166,7 @@
             this.dgbUsuarios.Size = new System.Drawing.Size(865, 462);
             this.dgbUsuarios.TabIndex = 11;
             this.dgbUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbDetalleProductos_CellClick);
+            this.dgbUsuarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgbUsuarios_CellFormatting);
             // 
             // errorProvider
             // 

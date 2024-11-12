@@ -59,6 +59,7 @@
           <Property Name="direccion" Type="varchar" MaxLength="80" Nullable="false" />
           <Property Name="telefono" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="estado_proveedor" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="rol_usuario">
           <Key>
@@ -101,7 +102,7 @@
           <Property Name="id_venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_cliente" Type="int" Nullable="false" />
           <Property Name="id_usuario" Type="int" Nullable="false" />
-          <Property Name="fecha" Type="datetime" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="precio_total" Type="float" Nullable="false" />
         </EntityType>
         <Association Name="FK_CATEGORIA_PRODUCTO">
@@ -337,7 +338,7 @@
           <Property Name="id_venta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_cliente" Type="Int32" Nullable="false" />
           <Property Name="id_usuario" Type="Int32" Nullable="false" />
-          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="fecha" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="precio_total" Type="Double" Nullable="false" />
           <NavigationProperty Name="clientes" Relationship="Self.FK_CLIENTE_VENTA" FromRole="ventas" ToRole="clientes" />
           <NavigationProperty Name="usuarios" Relationship="Self.FK_USUARIO_VENTA" FromRole="ventas" ToRole="usuarios" />
@@ -488,6 +489,7 @@
           <Property Name="telefono" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="productos" Relationship="TALLER2CSModel1.FK_PRODUCTO_PROVEEDOR" FromRole="proveedores" ToRole="productos" />
+          <Property Name="estado_proveedor" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_PRODUCTO_PROVEEDOR">
           <End Type="TALLER2CSModel1.proveedores" Role="proveedores" Multiplicity="1" />
@@ -607,6 +609,7 @@
           <EntitySetMapping Name="proveedores">
             <EntityTypeMapping TypeName="TALLER2CSModel1.proveedores">
               <MappingFragment StoreEntitySet="proveedores">
+                <ScalarProperty Name="estado_proveedor" ColumnName="estado_proveedor" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
                 <ScalarProperty Name="direccion" ColumnName="direccion" />

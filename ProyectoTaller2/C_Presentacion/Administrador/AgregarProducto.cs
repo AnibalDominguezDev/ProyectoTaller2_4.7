@@ -50,9 +50,10 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
             if (todosLosCamposValidos())
             {
              
-                if (Productos.nuevoProducto(tbxCodPrenda.Text,tbxNombre.Text,tbxDescripcion.Text,tbxPrecio.Text,tbxStock.Text,tbxStockMinimo.Text,cbxCategoria.Text,cbxMarca.Text,cbxProveedor.SelectedIndex))
+                if (Productos.nuevoProducto(tbxCodPrenda.Text,tbxNombre.Text,tbxDescripcion.Text,tbxPrecio.Text,tbxStock.Text,tbxStockMinimo.Text,cbxCategoria.Text,cbxMarca.Text,cbxProveedor.Text))
                 {
-                    MessageBox.Show("Exito");
+                    MessageBox.Show("Producto Agregado correctamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 } else
                 {
                     MessageBox.Show($"El producto con codigo: {tbxCodPrenda.Text} ya existe", "Error al insertar el producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -105,7 +106,7 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
         private void cargarProveedores()
         {
             cbxProveedor.Items.Clear();
-            cbxProveedor.DataSource = Productos.listarProveedores();
+            cbxProveedor.DataSource = Proveedores.listarProveedoresHabilitados();
             cbxProveedor.DisplayMember = "nombre";
             cbxProveedor.SelectedIndex = -1;
         }
@@ -117,6 +118,9 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
             this.cargarProveedores();
         }
 
+        private void panelFondo_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

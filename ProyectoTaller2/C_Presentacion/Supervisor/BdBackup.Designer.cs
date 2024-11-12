@@ -68,6 +68,7 @@
             this.btnRestaurar.TabIndex = 10;
             this.btnRestaurar.Text = "Restaurar";
             this.btnRestaurar.UseVisualStyleBackColor = true;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // btnGuardar
             // 

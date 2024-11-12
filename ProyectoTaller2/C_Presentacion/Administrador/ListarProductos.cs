@@ -82,17 +82,12 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
                 if ((int)row.Cells["estado"].Value == 1)
                 {
                     row.Cells["btnEliminar"].Value = "Eliminar";
-                    // Console.WriteLine("A");
                 }
                 else
                 {
                     row.Cells["btnEliminar"].Value = "Activar";
-                    //   Console.WriteLine("b");
                 }
             }
-
-            //dgbDetalleProductos.Rows[1].Cells["btnEliminar"].Value = "HOLA";
-
         }
 
         private void rellenarCbx()
@@ -113,7 +108,18 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
 
             if (validador.validarCbx(errorProvider,cbxFiltroCategorias)) dgbDetalleProductos.DataSource = Productos.listarProductosPorCategoria(cbxFiltroCategorias.Text);
 
+            foreach (DataGridViewRow row in dgbDetalleProductos.Rows)
+            {
 
+                if ((int)row.Cells["estado"].Value == 1)
+                {
+                    row.Cells["btnEliminar"].Value = "Eliminar";
+                }
+                else
+                {
+                    row.Cells["btnEliminar"].Value = "Activar";
+                }
+            }
         }
 
         private void dgbDetalleProductos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -127,7 +133,6 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
 
             if (e.ColumnIndex == dgbDetalleProductos.Columns["btnEliminar"].Index && e.RowIndex >= 0)
             {
-                //Productos.cambiarEstadoProducto();
                 if (Productos.cambiarEstadoProducto(int.Parse(dgbDetalleProductos.Rows[e.RowIndex].Cells["idEditar"].Value.ToString())))
                 {
                     MessageBox.Show("Producto actualizado correctamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);

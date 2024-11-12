@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panelFondo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbxPrecio = new System.Windows.Forms.TextBox();
             this.btnNuevaCategoria = new System.Windows.Forms.Button();
             this.btnNuevaMarca = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -52,8 +54,6 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblAgregarProducto = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tbxPrecio = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelFondo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -90,6 +90,25 @@
             this.panelFondo.Name = "panelFondo";
             this.panelFondo.Size = new System.Drawing.Size(484, 611);
             this.panelFondo.TabIndex = 0;
+            this.panelFondo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFondo_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(52, 389);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 24);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Precio:";
+            // 
+            // tbxPrecio
+            // 
+            this.tbxPrecio.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.tbxPrecio.Location = new System.Drawing.Point(176, 390);
+            this.tbxPrecio.Name = "tbxPrecio";
+            this.tbxPrecio.Size = new System.Drawing.Size(242, 25);
+            this.tbxPrecio.TabIndex = 29;
+            this.tbxPrecio.Text = "0";
             // 
             // btnNuevaCategoria
             // 
@@ -295,24 +314,6 @@
             // 
             this.errorProvider.BlinkRate = 300;
             this.errorProvider.ContainerControl = this;
-            // 
-            // tbxPrecio
-            // 
-            this.tbxPrecio.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.tbxPrecio.Location = new System.Drawing.Point(176, 390);
-            this.tbxPrecio.Name = "tbxPrecio";
-            this.tbxPrecio.Size = new System.Drawing.Size(242, 25);
-            this.tbxPrecio.TabIndex = 29;
-            this.tbxPrecio.Text = "0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 389);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 24);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Precio:";
             // 
             // AgregarProducto
             // 

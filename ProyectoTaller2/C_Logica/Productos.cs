@@ -57,7 +57,7 @@ namespace ProyectoTaller2.C_Logica
 
 
 
-        public static bool nuevoProducto(string codProducto, string nombre, string desc, string precio, string stock, string stock_min, string categoria, string marca, int id_proveedor)
+        public static bool nuevoProducto(string codProducto, string nombre, string desc, string precio, string stock, string stock_min, string categoria, string marca, string proveedor)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace ProyectoTaller2.C_Logica
                 nuevo.stock_minimo = istockMin;
                 nuevo.id_categoria = DProductos.getCategoryId(categoria);
                 nuevo.id_marca = DProductos.getBrandId(marca);
-                nuevo.id_proveedor = id_proveedor+1;
+                nuevo.id_proveedor = DProveedores.getSupplierId(proveedor);
                 nuevo.estado_producto = 1;
                 nuevo.create_at = DateTime.Now;
 
@@ -90,7 +90,7 @@ namespace ProyectoTaller2.C_Logica
         }
 
 
-        public static bool editarProducto(int id,string codProducto, string nombre, string desc, string precio, string stock, string stock_min, string categoria, string marca, int id_proveedor)
+        public static bool editarProducto(int id,string codProducto, string nombre, string desc, string precio, string stock, string stock_min, string categoria, string marca, string proveedor)
         {
             productos editar = new productos();
 
@@ -102,7 +102,7 @@ namespace ProyectoTaller2.C_Logica
             editar.stock_minimo = Int32.Parse(stock_min);
             editar.id_categoria = DProductos.getCategoryId(categoria);
             editar.id_marca = DProductos.getBrandId(marca);
-            editar.id_proveedor = id_proveedor+1;
+            editar.id_proveedor = DProveedores.getSupplierId(proveedor);
 
             return DProductos.editProduct(id,editar);
         }
@@ -159,9 +159,29 @@ namespace ProyectoTaller2.C_Logica
                 ); 
         }
 
+        public static string getNombreCategoria(int id)
+        {
+            return DProductos.getCategoryName(id);
+        }
+
+        public static List<ProductosMasVendidos> getProductosMasVendidos(DateTime inicio, DateTime fin)
+        {
+            return DProductos.getMostSellingProduct(inicio, fin);
+        }
+
         public static bool cambiarEstadoProducto(int id)
         {
             return DProductos.changeProductState(id);
+        }
+
+        public static List<VentasResumen> getResumenMensual(DateTime inicio, DateTime fin)
+        {
+            return DProductos.getOrdersSummary(inicio,fin);
+        }
+
+        public static List<CategoriaMasVendida> getCategoriasMasVendidas(DateTime inicio, DateTime fin)
+        {
+            return DProductos.getMostSellingCategories(inicio,fin);
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoTaller2.C_Logica;
 
 namespace ProyectoTaller2.C_Presentacion.Administrador
 {
@@ -37,7 +38,17 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (this.todosLosCamposValidos()) return;
+            if (this.todosLosCamposValidos())
+            {
+                if (Proveedores.nuevoProveedor(tbxNombre.Text, tbxDireccion.Text, tbxEmail.Text, tbxTelefono.Text))
+                {
+                    MessageBox.Show("Proveedor agregado Correctamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                } else
+                {
+                    MessageBox.Show("No se pudo agregar el proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void tbxTelefono_KeyPress(object sender, KeyPressEventArgs e)

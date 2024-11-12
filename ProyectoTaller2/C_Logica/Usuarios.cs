@@ -79,7 +79,7 @@ namespace ProyectoTaller2.C_Logica
             }
         }
 
-        public static bool editarUsuario(int id, string nombre, string apellido, string dni, string telefono, string direccion, string usuario, string contrasena, int rol_id,int estado)
+        public static bool editarUsuario(int id, string nombre, string apellido, string dni, string telefono, string direccion, string usuario, string contrasena, int rol_id)
         {
              try
              {
@@ -94,7 +94,7 @@ namespace ProyectoTaller2.C_Logica
                   user.usuario = usuario;
                   user.contrasena = contrasena;
                   user.rol_id = rol_id;
-                  user.estadoUsuario = estado;
+                user.estadoUsuario = 1;
 
                   return DUsuarios.editUsuario(id, user);
 
@@ -112,47 +112,12 @@ namespace ProyectoTaller2.C_Logica
 
         public static object listarUsuariosPorRol(int idRol = 1)
         {
-            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
-            {
-                var lst = from usuarios in db.usuarios where usuarios.rol_id == idRol
-                          select new
-                          {
-                              usuarios.fecha_alta,
-                              usuarios.apellido,
-                              usuarios.nombre,
-                              usuarios.dni,
-                              usuarios.telefono,
-                              usuarios.usuario,
-                               rol = usuarios.rol_usuario.nombre,
-                              usuarios.estadoUsuario
-
-                          };
-
-                return lst.ToList();
-            }
+            return DUsuarios.getUserByRol(idRol);
         }
 
         public static object listarUsuariosPorDni(int dni)
         {
-            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
-            {
-                var lst = from usuarios in db.usuarios
-                          where usuarios.dni == dni
-                          select new
-                          {
-                              usuarios.fecha_alta,
-                              usuarios.apellido,
-                              usuarios.nombre,
-                              usuarios.dni,
-                              usuarios.telefono,
-                              usuarios.usuario,
-                              rol = usuarios.rol_usuario.nombre,
-                              usuarios.estadoUsuario
-
-                          };
-
-                return lst.ToList();
-            }
+            return DUsuarios.listUsersByDni(dni);
         }
 
         public Usuarios ObtenerUsuarioPorId(int id)
@@ -179,18 +144,42 @@ namespace ProyectoTaller2.C_Logica
 
         public static object listarRoles()
         {
-            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
-            {
-                var lst = from rol_usuario in db.rol_usuario
-                          select rol_usuario;
+            return DUsuarios.getUserRoles();
+        }
 
-                return lst.ToList();
-            }
+        public static bool cambiarEstadoUsuario(int id)
+        {
+            return DUsuarios.changeUserState(id);
         }
 
         public static object buscarUsuarioPorApellido(string apellido)
         {
             return DUsuarios.SearchUsersByLastName(apellido);
+        }
+
+        public static string getNombreCompleto(int id)
+        {
+            return DUsuarios.getFullName(id);            
+        }
+
+        public static List<VendedoresConMasVentas> getVendedoresConMasVentas()
+        {
+            return DUsuarios.getMostValuableSeller();
+        }
+
+        public static List<VendedoresEstadisticas> getGananciasMensualesVendedor(int id)
+        {
+            return DUsuarios.getSellerStats(id);
+        }
+
+        public static int getVendedorIdPorDni(int dni)
+        {
+            return DUsuarios.getSellerIdByDni(dni);
+        }
+
+        public static object ListarVendedores()
+        {
+            return DUsuarios.getSellers();
         }
     }
 }

@@ -65,7 +65,7 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
         {
             if (this.todosLosCamposValidos())
             {
-                if (Productos.editarProducto(this.productId,tbxCodPrenda.Text,tbxNombre.Text,tbxDescripcion.Text,tbxPrecio.Text,tbxStock.Text,tbxStockMinimo.Text,cbxCategoria.Text,cbxMarca.Text,cbxProveedor.SelectedIndex))
+                if (Productos.editarProducto(this.productId,tbxCodPrenda.Text,tbxNombre.Text,tbxDescripcion.Text,tbxPrecio.Text,tbxStock.Text,tbxStockMinimo.Text,cbxCategoria.Text,cbxMarca.Text,cbxProveedor.Text))
                 {
                     MessageBox.Show("Producto editado correctamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
@@ -110,7 +110,7 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
         private void cargarProveedores()
         {
             cbxProveedor.Items.Clear();
-            cbxProveedor.DataSource = Productos.listarProveedores();
+            cbxProveedor.DataSource = Proveedores.listarProveedores();
             cbxProveedor.DisplayMember = "nombre";
             cbxProveedor.SelectedIndex = -1;
         }

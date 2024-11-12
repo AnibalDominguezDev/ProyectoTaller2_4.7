@@ -22,7 +22,7 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dgbUsuarios.Update();
+            cargarLista();
             
         }
 
@@ -37,8 +37,16 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
         {
             if (e.ColumnIndex == dgbUsuarios.Columns["btnEditar"].Index)
             {
-                Console.WriteLine("FUNCIONA" + int.Parse(dgbUsuarios.Rows[e.RowIndex].Cells["idEditar"].Value.ToString()));
                 new EditarUsuario(int.Parse(dgbUsuarios.Rows[e.RowIndex].Cells["idEditar"].Value.ToString())).ShowDialog();
+            }
+
+            if (e.ColumnIndex == dgbUsuarios.Columns["btnEliminar"].Index && e.RowIndex >= 0)
+            {
+                if (Usuarios.cambiarEstadoUsuario(int.Parse(dgbUsuarios.Rows[e.RowIndex].Cells["idEditar"].Value.ToString())))
+                {
+                    MessageBox.Show("Usuario actualizado correctamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cargarLista();
+                }
             }
         }
 
@@ -54,7 +62,8 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
 
         private void cargarLista()
         {
-         
+            dgbUsuarios.DataSource = "";
+            dgbUsuarios.Columns.Clear();
             dgbUsuarios.DataSource = Usuarios.listarUsuarios();
 
             dgbUsuarios.Columns[0].HeaderText = "Fecha de Alta";
@@ -73,10 +82,12 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
 
 
             dgbUsuarios.Columns[6].HeaderText = "Rol";
+            
             dgbUsuarios.Columns[6].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 
 
             dgbUsuarios.Columns[7].HeaderText = "Activo";
+            dgbUsuarios.Columns[7].Name = "estado";
             dgbUsuarios.Columns[7].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 
 
@@ -96,10 +107,45 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
                 dgbUsuarios.Columns.Add(btnEditar);
             }
 
+            DataGridViewButtonColumn btnEliminar = new DataGridViewButtonColumn();
+            {
+                btnEliminar.Name = "btnEliminar";
+                btnEliminar.HeaderText = "Accion";
+                btnEliminar.Text = "Eliminar";
+                btnEliminar.UseColumnTextForButtonValue = false;
+                dgbUsuarios.Columns.Add(btnEliminar);
+            }
+
+            foreach (DataGridViewRow row in dgbUsuarios.Rows)
+            {
+
+                if ((int)row.Cells["estado"].Value == 1)
+                {
+                    row.Cells["btnEliminar"].Value = "Eliminar";
+                }
+                else
+                {
+                    row.Cells["btnEliminar"].Value = "Activar";
+                }
+            }
+
         }
         private void btnAplicar_Click(object sender, EventArgs e)
         {
             dgbUsuarios.DataSource = Usuarios.listarUsuariosPorRol(cbxFiltroRol.SelectedIndex+1);
+
+            foreach (DataGridViewRow row in dgbUsuarios.Rows)
+            {
+
+                if ((int)row.Cells["estado"].Value == 1)
+                {
+                    row.Cells["btnEliminar"].Value = "Eliminar";
+                }
+                else
+                {
+                    row.Cells["btnEliminar"].Value = "Activar";
+                }
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -118,6 +164,19 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
             {
                 dgbUsuarios.DataSource = Usuarios.buscarUsuarioPorApellido(tbxBuscar.Text.Trim());
             }
+
+            foreach (DataGridViewRow row in dgbUsuarios.Rows)
+            {
+
+                /* if ((int)row.Cells["estado"].Value == 1)
+                {
+                    row.Cells["btnEliminar"].Value = "Eliminar";
+                }
+                else
+                {
+                    row.Cells["btnEliminar"].Value = "Activar";
+                } */
+            }
         }
 
         private void panelHeader_Paint(object sender, PaintEventArgs e)
@@ -134,6 +193,20 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
         {
             if (cbxFiltroBuscar.SelectedIndex == 0) e.Handled = !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar);
             else if (cbxFiltroBuscar.SelectedIndex == 1) e.Handled = char.IsDigit(e.KeyChar);
+        }
+
+        private void dgbUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgbUsuarios.Columns[e.ColumnIndex].Name == "estado" && e.RowIndex >= 0)
+            {
+                //int estado = (int)dgbUsuarios.Rows[e.RowIndex].Cells["estado"].Value;
+
+   
+                //if (estado == 1) dgbUsuarios.Rows[e.RowIndex].Cells["estado"].Value = "Activo";
+               // if (estado == 0) dgbUsuarios.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Salmon;
+            }
+
+
         }
     }
 }

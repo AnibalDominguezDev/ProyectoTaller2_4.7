@@ -7,18 +7,19 @@ using ProyectoTaller2.C_Datos;
 
 namespace ProyectoTaller2.C_Logica
 {
-    internal class DB
+    internal class Ventas
     {
-        public DB() { }
 
-        public static bool GuardarBackcup(string path)
+        public Ventas() { }
+
+        public static double getGananciasTotales()
         {
-            return DDB.createBackup(path);
+            return DVentas.getEarnings();
         }
 
-        public static bool RecuperarBackup(string path)
+        public static int getCantidadVentas()
         {
-            return DDB.restoreBackup(path);
+            return DVentas.getSellCounts();
         }
     }
 }

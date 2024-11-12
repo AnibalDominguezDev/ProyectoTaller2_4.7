@@ -56,7 +56,10 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
             {
                 if (Proveedores.editarProveedor(this.proveedorId,tbxNombre.Text,tbxDireccion.Text,tbxTelefono.Text,tbxEmail.Text))
                 {
-                    MessageBox.Show("Exito");
+                    MessageBox.Show("Proveedor actualizado correctamente!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } else
+                {
+                    MessageBox.Show("Ocurrio un error al editar el proveedor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             };
         }

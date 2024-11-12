@@ -76,11 +76,11 @@
             // 
             // testEditar
             // 
-            this.testEditar.Location = new System.Drawing.Point(174, 52);
+            this.testEditar.Location = new System.Drawing.Point(149, 53);
             this.testEditar.Name = "testEditar";
-            this.testEditar.Size = new System.Drawing.Size(75, 23);
+            this.testEditar.Size = new System.Drawing.Size(97, 23);
             this.testEditar.TabIndex = 10;
-            this.testEditar.Text = "testEditar";
+            this.testEditar.Text = "Recargar Lista";
             this.testEditar.UseVisualStyleBackColor = true;
             this.testEditar.Click += new System.EventHandler(this.testEditar_Click);
             // 

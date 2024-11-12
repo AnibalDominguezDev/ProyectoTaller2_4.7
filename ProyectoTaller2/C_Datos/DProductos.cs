@@ -5,9 +5,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace ProyectoTaller2.C_Datos
 {
+
+    public class VentasResumen
+    {
+        public int Mes { get; set; }
+        public double TotalVentas { get; set; }
+    }
+
+    public class CategoriaMasVendida
+    {
+        public int IdCategoria { get; set; }
+        public int VecesVendido { get; set; }
+    }
+
+    public class ProductosMasVendidos
+    {
+        public string Producto { get; set; }
+        public int TotalCantidadProductos { get; set; }
+    }
     internal class DProductos
     {
         public DProductos() { }
@@ -27,7 +46,7 @@ namespace ProyectoTaller2.C_Datos
             }
             catch (Exception ex)
             {
-              
+
                 Console.WriteLine(ex.ToString());
 
                 return false;
@@ -40,7 +59,7 @@ namespace ProyectoTaller2.C_Datos
             {
                 using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
                 {
-                    
+
                     var editar = db.productos.Find(id);
 
                     editar.cod_producto = product.cod_producto;
@@ -52,15 +71,15 @@ namespace ProyectoTaller2.C_Datos
                     editar.id_categoria = product.id_categoria;
                     editar.id_marca = product.id_marca;
                     editar.id_proveedor = product.id_proveedor;
-                    
+
 
                     db.SaveChanges();
                     return true;
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
-               return false;
+                return false;
             }
         }
 
@@ -69,22 +88,22 @@ namespace ProyectoTaller2.C_Datos
 
             using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
             {
-                 var lst = db.productos.Select(p => new {
-                          
-                               p.id_producto,
-                               p.cod_producto,
-                               p.nombre,
-                               p.descripcion,
-                               p.precio,
-                               p.stock,
-                               p.stock_minimo,
-                               catNombre = p.categoria_productos.nombre,
-                               p.estado_producto
-                           });
+                var lst = db.productos.Select(p => new {
 
-                 return lst.ToList(); 
+                    p.id_producto,
+                    p.cod_producto,
+                    p.nombre,
+                    p.descripcion,
+                    p.precio,
+                    p.stock,
+                    p.stock_minimo,
+                    catNombre = p.categoria_productos.nombre,
+                    p.estado_producto
+                });
 
-                
+                return lst.ToList();
+
+
             }
         }
 
@@ -112,13 +131,13 @@ namespace ProyectoTaller2.C_Datos
 
         public static object getCategories()
         {
-                using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
-                {
-                    var lst = from categoria_productos in db.categoria_productos
-                              select categoria_productos;
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                var lst = from categoria_productos in db.categoria_productos
+                          select categoria_productos;
 
-                    return lst.ToList();
-                }
+                return lst.ToList();
+            }
         }
 
         public static int getCategoryId(string cat)
@@ -185,6 +204,16 @@ namespace ProyectoTaller2.C_Datos
             }
         }
 
+        public static string getCategoryName(int id)
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+
+                var cat = db.categoria_productos.Find(id);
+                return $"{cat.nombre}";
+            }
+        }
+
         public static productos getProductById(int id)
         {
             using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
@@ -217,15 +246,15 @@ namespace ProyectoTaller2.C_Datos
                     return true;
 
                 }
-                else 
-                { 
+                else
+                {
                     return false;
                 }
 
-                
+
             }
         }
-        
+
         public static object seachProductByCode(string code)
         {
             using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
@@ -245,6 +274,77 @@ namespace ProyectoTaller2.C_Datos
 
                 return lst.ToList();
 
+            }
+        }
+
+
+        public static List<VentasResumen> getOrdersSummary(DateTime fechaInicio, DateTime fechaFin)
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+               // DateTime fechaInicio = inicio;
+                //DateTime fechaFin = fin;
+
+                var lst = db.ventas.Where(v => v.fecha >= fechaInicio && v.fecha <= fechaFin)
+                    .GroupBy(v => v.fecha.Month)
+                    .Select(g => new VentasResumen
+                    {
+                    Mes = g.Key,
+                    TotalVentas = g.Sum(v => v.precio_total)
+                     }).ToList();
+
+
+                return lst;
+             }
+        }
+
+        public static List<ProductosMasVendidos> getMostSellingProduct(DateTime fechaInicio, DateTime fechaFin)
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                Series series = new Series
+                {
+                    Name = "Ventas",
+                    ChartType = SeriesChartType.Column,
+                    IsValueShownAsLabel = true
+                };
+
+                var lst = db.venta_detalle
+                            .Where(vd => vd.ventas.fecha >= fechaInicio && vd.ventas.fecha <= fechaFin)
+                            .GroupBy(vd => vd.productos.nombre)
+                            .Select(g => new ProductosMasVendidos
+                            {
+                                Producto = g.Key,
+                                TotalCantidadProductos = g.Sum(vd => vd.cantidad)
+                            })
+                            .ToList();
+                return lst;
+            }
+        }
+
+        public static List<CategoriaMasVendida> getMostSellingCategories(DateTime fechaInicio, DateTime fechaFin)
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                var lst = db.productos
+                    .Join(db.venta_detalle,
+                          p => p.id_producto,
+                          vd => vd.id_producto,
+                          (p, vd) => new { p.id_categoria, vd })  // Primer JOIN: Productos con VentaDetalles
+                    .Join(db.ventas,
+                          pvd => pvd.vd.id_detalle_venta,
+                          v => v.id_venta,
+                          (pvd, v) => new { pvd.id_categoria, pvd.vd, v })  // Segundo JOIN: VentaDetalles con Ventas
+                    .Where(pvd => pvd.v.fecha >= fechaInicio && pvd.v.fecha <= fechaFin)  
+                    .GroupBy(pvd => pvd.id_categoria)  
+                    .Select(g => new CategoriaMasVendida
+                    {
+                        IdCategoria = g.Key,  // La categoría de los productos
+                        VecesVendido = g.Count()  // Contamos cuántas veces fue vendido un producto de esa categoría
+                    })
+                    .ToList();  
+
+                return lst;
             }
         }
     }

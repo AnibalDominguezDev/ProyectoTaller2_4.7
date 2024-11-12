@@ -20,7 +20,7 @@
         <AssociationConnector Association="TALLER2CSModel1.FK_VENTA_DETALLE_VENTA" ManuallyRouted="false" />
         <EntityTypeShape EntityType="TALLER2CSModel1.marcas" Width="1.5" PointX="3" PointY="13.25" />
         <AssociationConnector Association="TALLER2CSModel1.FK_PRODUCTO_MARCA" />
-        <EntityTypeShape EntityType="TALLER2CSModel1.proveedores" Width="1.5" PointX="5.375" PointY="5.875" />
+        <EntityTypeShape EntityType="TALLER2CSModel1.proveedores" Width="1.5" PointX="5.375" PointY="5.875" IsExpanded="true" />
         <AssociationConnector Association="TALLER2CSModel1.FK_PRODUCTO_PROVEEDOR" />
       </Diagram>
     </edmx:Diagrams>

@@ -25,6 +25,7 @@ namespace ProyectoTaller2.C_Datos
         public string direccion { get; set; }
         public string telefono { get; set; }
         public string email { get; set; }
+        public int estado_proveedor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<productos> productos { get; set; }

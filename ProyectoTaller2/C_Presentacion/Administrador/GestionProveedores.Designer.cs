@@ -71,7 +71,7 @@
             this.testEditar.Name = "testEditar";
             this.testEditar.Size = new System.Drawing.Size(107, 24);
             this.testEditar.TabIndex = 11;
-            this.testEditar.Text = "test Editar";
+            this.testEditar.Text = "Recargar Lista";
             this.testEditar.UseVisualStyleBackColor = true;
             this.testEditar.Click += new System.EventHandler(this.testEditar_Click);
             // 
@@ -189,6 +189,7 @@
             this.Name = "GestionProveedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestionProveedores";
+            this.Load += new System.EventHandler(this.GestionProveedores_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgbListarProveedores)).EndInit();

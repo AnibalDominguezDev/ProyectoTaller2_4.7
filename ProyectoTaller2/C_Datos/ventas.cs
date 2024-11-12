@@ -23,7 +23,7 @@ namespace ProyectoTaller2.C_Datos
         public int id_venta { get; set; }
         public int id_cliente { get; set; }
         public int id_usuario { get; set; }
-        public Nullable<System.DateTime> fecha { get; set; }
+        public System.DateTime fecha { get; set; }
         public double precio_total { get; set; }
     
         public virtual clientes clientes { get; set; }

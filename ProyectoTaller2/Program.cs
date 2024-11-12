@@ -20,8 +20,8 @@ namespace ProyectoTaller2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormPrincipalAdmin());
-            Application.Run(new FormPrincipalSupervisor());
+            Application.Run(new FormPrincipalAdmin());
+            //Application.Run(new FormPrincipalSupervisor());
             //Application.Run(new MenuVendedor());
             //Application.Run(new Login());
         }

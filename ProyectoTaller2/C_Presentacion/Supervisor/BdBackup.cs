@@ -26,6 +26,7 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
 
         private void btnRestaurarUbicacion_Click_1(object sender, EventArgs e)
         {
+            openFileDialog.Filter = "Archivo BAK (*.bak)|*.bak |All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == DialogResult.OK) tbxRestaurarDesde.Text = openFileDialog.FileName;
         }
 
@@ -33,7 +34,21 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
         {
             if (DB.GuardarBackcup(tbxGuardarEn.Text))
             {
-                MessageBox.Show("Exito");
+                MessageBox.Show("Copia de seguridad guardada correctamente.","Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else
+            {
+                MessageBox.Show("Ocurrio un error al guardar la copia", "Error al guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            if (DB.RecuperarBackup(tbxRestaurarDesde.Text))
+            {
+                MessageBox.Show("Copia de seguridad restaurada correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else
+            {
+                MessageBox.Show("Ocurrio un error al restaurar la copia", "Error al restaurar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
