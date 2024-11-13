@@ -1,6 +1,6 @@
 ﻿namespace ProyectoTaller2.C_Presentacion.Login
 {
-    partial class Login
+    partial class FormLogin
     {
         /// <summary>
         /// Required designer variable.

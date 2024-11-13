@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoTaller2.C_Presentacion.Login;
 
 namespace ProyectoTaller2.C_Presentacion.Supervisor
 {
     public partial class FormPrincipalSupervisor : Form
     {
-        public FormPrincipalSupervisor()
+        private string nombreUsuario;
+        public FormPrincipalSupervisor(string nombreCompleto)
         {
             InitializeComponent();
+            this.nombreUsuario = nombreCompleto;
+            lblNombreSupervisor.Text = $"Conectado como: {this.nombreUsuario}"; 
         }
 
         private void cargarFormulario(Form formulario)
@@ -43,11 +47,15 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
+            FormLogin loginForm = new FormLogin();
+
             var result = MessageBox.Show("Seguro que desea cerrar la sesion actual?", "Cerrar sesion",
                               MessageBoxButtons.YesNo,
                               MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes) this.Close();
+
+            loginForm.Show();
         }
     }
 }

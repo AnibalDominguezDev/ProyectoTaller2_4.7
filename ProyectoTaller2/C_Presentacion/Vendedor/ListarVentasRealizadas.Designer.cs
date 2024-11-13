@@ -36,7 +36,7 @@
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.lblFiltrarFecha = new System.Windows.Forms.Label();
             this.lblVentas = new System.Windows.Forms.Label();
-            this.gridListaProductos = new System.Windows.Forms.DataGridView();
+            this.gridListaVentas = new System.Windows.Forms.DataGridView();
             this.ColNroVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +44,7 @@
             this.colPrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colVerDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gbxVentasRealizadas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridListaProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridListaVentas)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxVentasRealizadas
@@ -89,6 +89,7 @@
             this.btnFiltroVen.TabIndex = 7;
             this.btnFiltroVen.Text = "Filtrar";
             this.btnFiltroVen.UseVisualStyleBackColor = true;
+            this.btnFiltroVen.Click += new System.EventHandler(this.btnFiltroVen_Click);
             // 
             // dtpHasta
             // 
@@ -126,25 +127,26 @@
             this.lblVentas.TabIndex = 2;
             this.lblVentas.Text = "Mis Ventas";
             // 
-            // gridListaProductos
+            // gridListaVentas
             // 
-            this.gridListaProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(247)))));
-            this.gridListaProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.gridListaProductos.ColumnHeadersHeight = 40;
-            this.gridListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.gridListaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridListaVentas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(247)))));
+            this.gridListaVentas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.gridListaVentas.ColumnHeadersHeight = 40;
+            this.gridListaVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridListaVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColNroVenta,
             this.ColFecha,
             this.colCliente,
             this.colCantProductos,
             this.colPrecioTotal,
             this.colVerDetalle});
-            this.gridListaProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gridListaProductos.Location = new System.Drawing.Point(12, 145);
-            this.gridListaProductos.Name = "gridListaProductos";
-            this.gridListaProductos.RowHeadersVisible = false;
-            this.gridListaProductos.Size = new System.Drawing.Size(856, 443);
-            this.gridListaProductos.TabIndex = 11;
+            this.gridListaVentas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gridListaVentas.Location = new System.Drawing.Point(12, 145);
+            this.gridListaVentas.Name = "gridListaVentas";
+            this.gridListaVentas.RowHeadersVisible = false;
+            this.gridListaVentas.Size = new System.Drawing.Size(856, 443);
+            this.gridListaVentas.TabIndex = 11;
+            this.gridListaVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridListaVentas_CellContentClick);
             // 
             // ColNroVenta
             // 
@@ -195,7 +197,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(880, 600);
-            this.Controls.Add(this.gridListaProductos);
+            this.Controls.Add(this.gridListaVentas);
             this.Controls.Add(this.gbxVentasRealizadas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ListarVentasRealizadas";
@@ -203,7 +205,7 @@
             this.Text = "ListarVentasRealizadas";
             this.gbxVentasRealizadas.ResumeLayout(false);
             this.gbxVentasRealizadas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridListaProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridListaVentas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,7 +214,7 @@
 
         private System.Windows.Forms.GroupBox gbxVentasRealizadas;
         private System.Windows.Forms.Label lblVentas;
-        private System.Windows.Forms.DataGridView gridListaProductos;
+        private System.Windows.Forms.DataGridView gridListaVentas;
         private System.Windows.Forms.DateTimePicker dtpHasta;
         private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.Label lblFiltrarFecha;

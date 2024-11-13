@@ -194,6 +194,7 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
         {
             lblVentasTotales.Text = $"Ventas Totales: {Ventas.getCantidadVentas()}";
             lblGanancias.Text = $"Ganancias Totales: ${Ventas.getGananciasTotales()}";
+            lvlVendedoresActivos.Text = $"Vendedores activos {Usuarios.contarVendedoresActivos()}";
 
 
             DateTime desde = new DateTime(2024, 1, 1);

@@ -1,25 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Globalization;
 using System.Windows.Forms;
-using ProyectoTaller2.C_Logica;
-using ProyectoTaller2.C_Presentacion.Login;
 
 namespace ProyectoTaller2.C_Presentacion.Vendedor
 {
-    public partial class RealizarVenta : Form
+    public partial class RealizarVenta1 : Form
     {
         private int idCliente;
-
-        public RealizarVenta(string nombre)
+        public RealizarVenta1()
         {
             InitializeComponent();
-            lblNomVendedor.Text = nombre;
         }
 
         private void setIdCliente(int id)
@@ -32,33 +28,7 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
             return this.idCliente;
         }
 
-        private void btnCancelarVenta_Click(object sender, EventArgs e)
-        {
-            var result = MessageBox.Show("Seguro que desea cancelar esta operacion?", "Cancelar Venta",
-                             MessageBoxButtons.YesNo,
-                             MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes) this.Close();
-        }
-
-        private void RealizarVenta_Load(object sender, EventArgs e)
-        {
-            ConfigurarColumnasDataGridView();
-            ConfigurarColumnasDGVClientes();
-            //lstClientes();
-            lstProductos();
-            lstMetodosPago();
-            cbxMetodoPago.SelectedIndex = 1;
-            gridVentaProducto.CellContentClick += gridVentaProducto_CellContentClick;
-            gbListaClientes.Visible = false;
-        }
-
-        private void lstClientes()
-        {
-            var nombres = Clientes.ListaDeClientesParaVentas();
-            cbxCliente.DataSource = nombres;
-        }
-
+        /*
         private void lstMetodosPago()
         {
             var metodos = MetodoPago.listarMetodosPagos();
@@ -79,8 +49,7 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
 
         private void lstProductos()
         {
-            gridVentaProducto.DataSource = "";
-            var productos = Productos.listarProductosDisponibles();
+            var productos = Productos.listaProductosParaVentas();
             gridVentaProducto.DataSource = productos;
         }
 
@@ -117,7 +86,7 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
                     // Guarda el stock disponible en el Tag para validarlo luego
                     gridRealizarVenta.Rows[nuevaFila].Tag = stockDisponible;
                 }
-                
+
             }
         }
 
@@ -154,7 +123,7 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
             {
                 gridRealizarVenta.Columns.Add("col_precioTotalVR", "Precio Total");
             }
-            
+
         }
 
         private void gridRealizarVenta_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -217,8 +186,8 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
         {
             if (cbxBuscarPor.SelectedItem.ToString() == "Cod. Prenda")
             {
-             //   tbxBuscarProducto.KeyPress += new KeyPressEventHandler(SoloNumeros_KeyPress);
-           //     tbxBuscarProducto.KeyPress -= new KeyPressEventHandler(SoloLetras_KeyPress);
+                tbxBuscarProducto.KeyPress += new KeyPressEventHandler(SoloNumeros_KeyPress);
+                tbxBuscarProducto.KeyPress -= new KeyPressEventHandler(SoloLetras_KeyPress);
             }
             else if (cbxBuscarPor.SelectedItem.ToString() == "Nombre")
             {
@@ -255,8 +224,15 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
 
             if (cbxBuscarPor.SelectedItem.ToString() == "Cod. Prenda")
             {
-                    BuscarProductoPorCodigo(tbxBuscarProducto.Text.Trim());
-               
+                // Convertimos el texto a número y hacemos la búsqueda por código
+                if (int.TryParse(criterioBusqueda, out int codigoPrenda))
+                {
+                    BuscarProductoPorCodigo(codigoPrenda);
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un código válido.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else if (cbxBuscarPor.SelectedItem.ToString() == "Nombre")
             {
@@ -264,9 +240,9 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
             }
         }
 
-        private void BuscarProductoPorCodigo(string codigo)
+        private void BuscarProductoPorCodigo(int codigo)
         {
-            var productos = Productos.BuscarProductoPorCodigo(codigo);
+            var productos = Productos.ListarPorductorPorCodigo(codigo);
             gridVentaProducto.DataSource = productos;
         }
 
@@ -274,12 +250,6 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
         {
             var productos = Productos.listarProductosPorNombre(nombre);
             gridVentaProducto.DataSource = productos;
-        }
-
-        private void btnBuscarCPor_Click(object sender, EventArgs e)
-        {
-            gbListaClientes.Visible = true;
-            CargarClientes();
         }
 
         private void ConfigurarColumnasDGVClientes()
@@ -308,8 +278,6 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
                 string apellidoCliente = dgvClientesVentas.Rows[e.RowIndex].Cells["ColApeC"].Value.ToString();
 
                 lblClienteSelec.Text = $"{nombreCliente} {apellidoCliente}";
-
-                setIdCliente(idCliente);
 
                 gbListaClientes.Visible = false;
             }
@@ -360,6 +328,7 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
             }
         }
 
+
         private void BuscarClientePorDNI(string dni)
         {
             var clientes = Clientes.listarClentesPorDni(dni);
@@ -371,66 +340,24 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
             var clientes = Clientes.listarClientesPorNombre(nombre);
             dgvClientesVentas.DataSource = clientes;
         }
+        private bool todosLosCamposValidos()
+        {
+            Validador validador = new Validador();
 
+            return validador.validarCbx(errorProvider, cbxCliente);
+        }
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(lblClienteSelec.Text) &&
-                !string.IsNullOrEmpty(cbxMetodoPago.SelectedItem.ToString()) &&
-                gridRealizarVenta.Rows.Count > 0 &&
-                !string.IsNullOrEmpty(lblPrecioTotal.Text))
-            {
-                string precioTexto = lblPrecioTotal.Text.Replace("$", "").Trim();
-                float precioTotal = float.Parse(precioTexto); //Decimal.Parse(precioTexto, NumberStyles.AllowDecimalPoint, CultureInfo.CurrentCulture);
-                DateTime fechaSeleccionada = dtpFechaVenta.Value;
-                string metodoPago = cbxMetodoPago.Text;
-
-                MetodoPago method = new MetodoPago();
-                int metodo_pago = method.BuscarPorNombre(metodoPago);
-
-                int idVendedor = Sesion.IdUsuarioConectado;
-
-                Ventas venta = new Ventas();
-                venta.guardarVenta(getIdCliente(), idVendedor, fechaSeleccionada, precioTotal, metodo_pago);
-
-
-                int idVenta = venta.ObtenerUltimaVentaID();
-                //MessageBox.Show($"idVenta: {idVenta}");
-
-                if (idVenta != 0) 
-                {
-                    foreach (DataGridViewRow row in gridRealizarVenta.Rows)
-                    {
-                        int idProducto = Convert.ToInt32(row.Cells["Col_proId"].Value);
-                        decimal precioUnitario = Convert.ToDecimal(row.Cells["col_precioUnitarioVR"].Value);
-                        int cantidad = Convert.ToInt32(row.Cells["col_cantidadVR"].Value);
-                        //MessageBox.Show($"idproducto: {idProducto}");
-                        //MessageBox.Show($"precio: {precioUnitario}");
-                        //MessageBox.Show($"cantidad: {cantidad}");
-
-                        Venta_Detalle Detalle = new Venta_Detalle();
-                        Detalle.guardarDetalle(idVenta, idProducto, precioUnitario, cantidad);
-                    }
-
-                    MessageBox.Show("Venta realizada con éxito.");
-
-                    cbxCliente.Text = "";
-                    cbxMetodoPago.SelectedIndex = -1;
-                    gridRealizarVenta.Rows.Clear();
-                    lstProductos();
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Error al obtener el ID de la venta.");
-                }
-                
-            }
-            else
-            { 
-                MessageBox.Show("Por favor complete todos los campos.");
-            }
-            
+            if (todosLosCamposValidos()) return;
         }
 
+        private void btnCancelarVenta_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Seguro que desea cancelar esta operacion?", "Cancelar Venta",
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes) this.Close();
+        } */
     }
 }

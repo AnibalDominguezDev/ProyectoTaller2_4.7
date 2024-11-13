@@ -35,7 +35,7 @@
             this.btnListarUsuarios = new System.Windows.Forms.Button();
             this.btnAgregarUsuario = new System.Windows.Forms.Button();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
-            this.lblNombreAdmin = new System.Windows.Forms.Label();
+            this.lblNombreSupervisor = new System.Windows.Forms.Label();
             this.lblTituloSupervisor = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -49,7 +49,7 @@
             this.panel1.Controls.Add(this.btnListarUsuarios);
             this.panel1.Controls.Add(this.btnAgregarUsuario);
             this.panel1.Controls.Add(this.pbxLogo);
-            this.panel1.Controls.Add(this.lblNombreAdmin);
+            this.panel1.Controls.Add(this.lblNombreSupervisor);
             this.panel1.Controls.Add(this.lblTituloSupervisor);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -121,15 +121,15 @@
             this.pbxLogo.TabIndex = 11;
             this.pbxLogo.TabStop = false;
             // 
-            // lblNombreAdmin
+            // lblNombreSupervisor
             // 
-            this.lblNombreAdmin.AutoSize = true;
-            this.lblNombreAdmin.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblNombreAdmin.Location = new System.Drawing.Point(69, 228);
-            this.lblNombreAdmin.Name = "lblNombreAdmin";
-            this.lblNombreAdmin.Size = new System.Drawing.Size(162, 19);
-            this.lblNombreAdmin.TabIndex = 10;
-            this.lblNombreAdmin.Text = "Conectado como: (name)";
+            this.lblNombreSupervisor.AutoSize = true;
+            this.lblNombreSupervisor.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblNombreSupervisor.Location = new System.Drawing.Point(69, 228);
+            this.lblNombreSupervisor.Name = "lblNombreSupervisor";
+            this.lblNombreSupervisor.Size = new System.Drawing.Size(162, 19);
+            this.lblNombreSupervisor.TabIndex = 10;
+            this.lblNombreSupervisor.Text = "Conectado como: (name)";
             // 
             // lblTituloSupervisor
             // 
@@ -164,7 +164,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pbxLogo;
-        private System.Windows.Forms.Label lblNombreAdmin;
+        private System.Windows.Forms.Label lblNombreSupervisor;
         private System.Windows.Forms.Label lblTituloSupervisor;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnListarUsuarios;

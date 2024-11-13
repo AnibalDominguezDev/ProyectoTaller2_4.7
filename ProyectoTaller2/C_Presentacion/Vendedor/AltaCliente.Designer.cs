@@ -72,7 +72,8 @@
             this.panelAltaCliente.Controls.Add(this.lblTelAltaC);
             this.panelAltaCliente.Controls.Add(this.lblDniAltaC);
             this.panelAltaCliente.Controls.Add(this.lblNomAltaC);
-            this.panelAltaCliente.Location = new System.Drawing.Point(190, 0);
+            this.panelAltaCliente.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelAltaCliente.Location = new System.Drawing.Point(0, 0);
             this.panelAltaCliente.Name = "panelAltaCliente";
             this.panelAltaCliente.Size = new System.Drawing.Size(500, 600);
             this.panelAltaCliente.TabIndex = 0;
@@ -241,10 +242,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(880, 600);
+            this.ClientSize = new System.Drawing.Size(501, 600);
             this.Controls.Add(this.panelAltaCliente);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AltaCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AltaCliente";
             this.panelAltaCliente.ResumeLayout(false);
             this.panelAltaCliente.PerformLayout();

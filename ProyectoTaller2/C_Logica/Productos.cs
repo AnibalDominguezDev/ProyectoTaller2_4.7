@@ -44,6 +44,17 @@ namespace ProyectoTaller2.C_Logica
 
         }
 
+        public static List<object> listarProductosVendedor()
+        {
+            return DProductos.ObtenerListaProductos();
+        }
+
+        public static List<object> listarProductosPorNombre(string nombre)
+        {
+            return DProductos.ProductosPorNombre(nombre);
+        }
+
+
         public string getCodProducto(){ return this.codProducto;}
         public string getNombre(){ return this.nombre;}
         public string getDescripcion(){ return this.descripcion;}
@@ -110,6 +121,16 @@ namespace ProyectoTaller2.C_Logica
         public static object listarProductos()
         {
             return DProductos.getAllProducts();
+        }
+
+        public static List<Object> BuscarProductoPorCodigo(string codigo)
+        {
+            return DProductos.BuscarProductoPorCod(codigo);
+        }
+
+        public static List<Object> listarProductosDisponibles()
+        {
+            return DProductos.ObtenerProductosDisponibles();
         }
 
         public static object listarProductosPorCategoria(string categoria)

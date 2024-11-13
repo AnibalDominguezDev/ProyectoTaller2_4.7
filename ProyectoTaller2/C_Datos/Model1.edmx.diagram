@@ -4,10 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b1647839c3d8479bb5a2b459bf898493" Name="Diagram1">
-        <EntityTypeShape EntityType="TALLER2CSModel.rol_usuario" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TALLER2CSModel.usuarios" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="ad036b02a3ca48aabaa339dcefa9cc47" Name="Diagram1">
+        <EntityTypeShape EntityType="TALLER2CSModel.categoria_productos" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALLER2CSModel.clientes" Width="1.5" PointX="8" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALLER2CSModel.marcas" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALLER2CSModel.metodo_pago" Width="1.5" PointX="8" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALLER2CSModel.productos" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALLER2CSModel.proveedores" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALLER2CSModel.rol_usuario" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALLER2CSModel.usuarios" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALLER2CSModel.venta_detalle" Width="1.5" PointX="5.375" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALLER2CSModel.ventas" Width="1.5" PointX="10.25" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="TALLER2CSModel.FK_CATEGORIA_PRODUCTO" ManuallyRouted="false" />
+        <AssociationConnector Association="TALLER2CSModel.FK_CLIENTE_VENTA" ManuallyRouted="false" />
+        <AssociationConnector Association="TALLER2CSModel.FK_PRODUCTO_MARCA" ManuallyRouted="false" />
+        <AssociationConnector Association="TALLER2CSModel.FK_METODOPAGO_VENTA" ManuallyRouted="false" />
+        <AssociationConnector Association="TALLER2CSModel.FK_PRODUCTO_PROVEEDOR" ManuallyRouted="false" />
+        <AssociationConnector Association="TALLER2CSModel.FK_PRODUCTO_VENTA" ManuallyRouted="false" />
         <AssociationConnector Association="TALLER2CSModel.FK_ROL" ManuallyRouted="false" />
+        <AssociationConnector Association="TALLER2CSModel.FK_USUARIO_VENTA" ManuallyRouted="false" />
+        <AssociationConnector Association="TALLER2CSModel.FK_VENTA_DETALLE_VENTA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

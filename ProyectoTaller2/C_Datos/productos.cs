@@ -34,9 +34,9 @@ namespace ProyectoTaller2.C_Datos
         public string cod_producto { get; set; }
     
         public virtual categoria_productos categoria_productos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<venta_detalle> venta_detalle { get; set; }
         public virtual marcas marcas { get; set; }
         public virtual proveedores proveedores { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<venta_detalle> venta_detalle { get; set; }
     }
 }

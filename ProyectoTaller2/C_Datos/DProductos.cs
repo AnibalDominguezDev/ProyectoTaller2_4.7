@@ -83,7 +83,77 @@ namespace ProyectoTaller2.C_Datos
             }
         }
 
-        public static object getAllProducts()
+        public static List<object> ObtenerListaProductos()
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                var lista = from productos in db.productos
+                            where productos.estado_producto == 1
+                            join categoria_productos in db.categoria_productos on productos.id_categoria equals categoria_productos.id_categoria
+                            select new
+                            {
+                                productos.id_producto,
+                                productos.nombre,
+                                productos.descripcion,
+                                productos.stock,
+                                productos.precio,
+                                categoriaNombre = categoria_productos.nombre,
+                                productos.cod_producto
+                            };
+                return lista.ToList<object>();
+            }
+        }
+
+        public static List<object> ObtenerProductosDisponibles()
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                var lista = from productos in db.productos
+                            where productos.estado_producto == 1
+                            select new
+                            {
+                                productos.id_producto,
+                                productos.nombre,
+                                productos.descripcion,
+                                productos.stock,
+                                productos.precio
+                            };
+                return lista.ToList<object>();
+            }
+        }
+
+        public static List<Object> BuscarProductoPorCod(string cod)
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+
+                var lst = db.productos.Where(p => p.cod_producto.Equals(cod));
+                return lst.ToList<object>();
+            }
+        }
+
+        public static List<object> ProductosPorNombre(string nombreFiltro)
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                var lista = from producto in db.productos
+                            where producto.estado_producto == 1 &&
+                                  (string.IsNullOrEmpty(nombreFiltro) || producto.nombre.Contains(nombreFiltro))
+                            join categoria_productos in db.categoria_productos on producto.id_categoria equals categoria_productos.id_categoria
+                            select new
+                            {
+                                IdProducto = producto.id_producto,
+                                Nombre = producto.nombre,
+                                Descripcion = producto.descripcion,
+                                Stock = producto.stock,
+                                Precio = producto.precio,
+                                CategoriaNombre = categoria_productos.nombre
+                            };
+
+                return lista.ToList<object>();
+            }
+        }
+                public static object getAllProducts()
         {
 
             using (TALLER2CSEntities3 db = new TALLER2CSEntities3())

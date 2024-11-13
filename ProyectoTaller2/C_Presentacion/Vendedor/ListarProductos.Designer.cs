@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.dgbDetalleProductos = new System.Windows.Forms.DataGridView();
-            this.gbxProductos = new System.Windows.Forms.GroupBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.lblBuscar = new System.Windows.Forms.Label();
-            this.lblProductos = new System.Windows.Forms.Label();
-            this.tbxBuscarProducto = new System.Windows.Forms.TextBox();
-            this.cbxBuscarPor = new System.Windows.Forms.ComboBox();
             this.colCodPrenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecioUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbxFiltrarCategoria = new System.Windows.Forms.ComboBox();
+            this.gbxProductos = new System.Windows.Forms.GroupBox();
             this.btxFiltrar = new System.Windows.Forms.Button();
+            this.cbxFiltrarCategoria = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbxBuscarPor = new System.Windows.Forms.ComboBox();
+            this.tbxBuscarProducto = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.lblBuscar = new System.Windows.Forms.Label();
+            this.lblProductos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgbDetalleProductos)).BeginInit();
             this.gbxProductos.SuspendLayout();
             this.SuspendLayout();
@@ -67,70 +67,6 @@
             this.dgbDetalleProductos.RowHeadersVisible = false;
             this.dgbDetalleProductos.Size = new System.Drawing.Size(868, 444);
             this.dgbDetalleProductos.TabIndex = 12;
-            // 
-            // gbxProductos
-            // 
-            this.gbxProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.gbxProductos.Controls.Add(this.btxFiltrar);
-            this.gbxProductos.Controls.Add(this.cbxFiltrarCategoria);
-            this.gbxProductos.Controls.Add(this.label1);
-            this.gbxProductos.Controls.Add(this.cbxBuscarPor);
-            this.gbxProductos.Controls.Add(this.tbxBuscarProducto);
-            this.gbxProductos.Controls.Add(this.btnBuscar);
-            this.gbxProductos.Controls.Add(this.lblBuscar);
-            this.gbxProductos.Controls.Add(this.lblProductos);
-            this.gbxProductos.Location = new System.Drawing.Point(6, 12);
-            this.gbxProductos.Name = "gbxProductos";
-            this.gbxProductos.Size = new System.Drawing.Size(868, 116);
-            this.gbxProductos.TabIndex = 13;
-            this.gbxProductos.TabStop = false;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(780, 81);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(71, 22);
-            this.btnBuscar.TabIndex = 7;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // lblBuscar
-            // 
-            this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F);
-            this.lblBuscar.Location = new System.Drawing.Point(456, 81);
-            this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(87, 21);
-            this.lblBuscar.TabIndex = 4;
-            this.lblBuscar.Text = "Buscar por:";
-            // 
-            // lblProductos
-            // 
-            this.lblProductos.AutoSize = true;
-            this.lblProductos.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lblProductos.Location = new System.Drawing.Point(16, 16);
-            this.lblProductos.Name = "lblProductos";
-            this.lblProductos.Size = new System.Drawing.Size(200, 32);
-            this.lblProductos.TabIndex = 2;
-            this.lblProductos.Text = "Listar productos";
-            // 
-            // tbxBuscarProducto
-            // 
-            this.tbxBuscarProducto.Location = new System.Drawing.Point(640, 82);
-            this.tbxBuscarProducto.Name = "tbxBuscarProducto";
-            this.tbxBuscarProducto.Size = new System.Drawing.Size(134, 20);
-            this.tbxBuscarProducto.TabIndex = 8;
-            // 
-            // cbxBuscarPor
-            // 
-            this.cbxBuscarPor.FormattingEnabled = true;
-            this.cbxBuscarPor.Items.AddRange(new object[] {
-            "Cod Prenda",
-            "Nombre"});
-            this.cbxBuscarPor.Location = new System.Drawing.Point(549, 82);
-            this.cbxBuscarPor.Name = "cbxBuscarPor";
-            this.cbxBuscarPor.Size = new System.Drawing.Size(85, 21);
-            this.cbxBuscarPor.TabIndex = 9;
             // 
             // colCodPrenda
             // 
@@ -167,15 +103,31 @@
             this.colCategoria.HeaderText = "Categoria";
             this.colCategoria.Name = "colCategoria";
             // 
-            // label1
+            // gbxProductos
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F);
-            this.label1.Location = new System.Drawing.Point(456, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 21);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Filtrar por categoria:";
+            this.gbxProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.gbxProductos.Controls.Add(this.btxFiltrar);
+            this.gbxProductos.Controls.Add(this.cbxFiltrarCategoria);
+            this.gbxProductos.Controls.Add(this.label1);
+            this.gbxProductos.Controls.Add(this.cbxBuscarPor);
+            this.gbxProductos.Controls.Add(this.tbxBuscarProducto);
+            this.gbxProductos.Controls.Add(this.btnBuscar);
+            this.gbxProductos.Controls.Add(this.lblBuscar);
+            this.gbxProductos.Controls.Add(this.lblProductos);
+            this.gbxProductos.Location = new System.Drawing.Point(6, 12);
+            this.gbxProductos.Name = "gbxProductos";
+            this.gbxProductos.Size = new System.Drawing.Size(868, 116);
+            this.gbxProductos.TabIndex = 13;
+            this.gbxProductos.TabStop = false;
+            // 
+            // btxFiltrar
+            // 
+            this.btxFiltrar.Location = new System.Drawing.Point(780, 49);
+            this.btxFiltrar.Name = "btxFiltrar";
+            this.btxFiltrar.Size = new System.Drawing.Size(71, 22);
+            this.btxFiltrar.TabIndex = 12;
+            this.btxFiltrar.Text = "Filtrar";
+            this.btxFiltrar.UseVisualStyleBackColor = true;
             // 
             // cbxFiltrarCategoria
             // 
@@ -188,14 +140,63 @@
             this.cbxFiltrarCategoria.Size = new System.Drawing.Size(134, 21);
             this.cbxFiltrarCategoria.TabIndex = 11;
             // 
-            // btxFiltrar
+            // label1
             // 
-            this.btxFiltrar.Location = new System.Drawing.Point(780, 49);
-            this.btxFiltrar.Name = "btxFiltrar";
-            this.btxFiltrar.Size = new System.Drawing.Size(71, 22);
-            this.btxFiltrar.TabIndex = 12;
-            this.btxFiltrar.Text = "Filtrar";
-            this.btxFiltrar.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F);
+            this.label1.Location = new System.Drawing.Point(456, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 21);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Filtrar por categoria:";
+            // 
+            // cbxBuscarPor
+            // 
+            this.cbxBuscarPor.FormattingEnabled = true;
+            this.cbxBuscarPor.Items.AddRange(new object[] {
+            "Cod Prenda",
+            "Nombre"});
+            this.cbxBuscarPor.Location = new System.Drawing.Point(549, 82);
+            this.cbxBuscarPor.Name = "cbxBuscarPor";
+            this.cbxBuscarPor.Size = new System.Drawing.Size(85, 21);
+            this.cbxBuscarPor.TabIndex = 9;
+            // 
+            // tbxBuscarProducto
+            // 
+            this.tbxBuscarProducto.Location = new System.Drawing.Point(640, 82);
+            this.tbxBuscarProducto.Name = "tbxBuscarProducto";
+            this.tbxBuscarProducto.Size = new System.Drawing.Size(134, 20);
+            this.tbxBuscarProducto.TabIndex = 8;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(780, 81);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(71, 22);
+            this.btnBuscar.TabIndex = 7;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F);
+            this.lblBuscar.Location = new System.Drawing.Point(456, 81);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(87, 21);
+            this.lblBuscar.TabIndex = 4;
+            this.lblBuscar.Text = "Buscar por:";
+            // 
+            // lblProductos
+            // 
+            this.lblProductos.AutoSize = true;
+            this.lblProductos.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lblProductos.Location = new System.Drawing.Point(16, 16);
+            this.lblProductos.Name = "lblProductos";
+            this.lblProductos.Size = new System.Drawing.Size(200, 32);
+            this.lblProductos.TabIndex = 2;
+            this.lblProductos.Text = "Listar productos";
             // 
             // ListarProductos
             // 
@@ -210,6 +211,7 @@
             this.Name = "ListarProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListarProductos";
+            this.Load += new System.EventHandler(this.ListarProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgbDetalleProductos)).EndInit();
             this.gbxProductos.ResumeLayout(false);
             this.gbxProductos.PerformLayout();

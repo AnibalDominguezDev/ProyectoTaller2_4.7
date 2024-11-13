@@ -18,7 +18,7 @@ namespace ProyectoTaller2.C_Datos
         public int id_venta { get; set; }
         public int id_producto { get; set; }
         public int cantidad { get; set; }
-        public double precio { get; set; }
+        public decimal precio { get; set; }
     
         public virtual productos productos { get; set; }
         public virtual ventas ventas { get; set; }

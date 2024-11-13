@@ -52,12 +52,12 @@ namespace ProyectoTaller2.C_Datos
             }
         }
 
-        public static bool editUsuario(int id,usuarios user)
+        public static bool editUsuario(int id, usuarios user)
         {
             try
             {
 
-            
+
                 using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
                 {
                     var editarUsuario = db.usuarios.Find(id);
@@ -76,10 +76,13 @@ namespace ProyectoTaller2.C_Datos
 
                     return true;
                 }
-            } catch (Exception e ) {
-                
+            }
+            catch (Exception e)
+            {
+
                 Console.Error.WriteLine(e.Message);
-                return false; }
+                return false;
+            }
 
         }
 
@@ -171,7 +174,7 @@ namespace ProyectoTaller2.C_Datos
                 var user = db.usuarios.Find(id);
 
                 return user;
-      
+
             }
         }
 
@@ -189,7 +192,7 @@ namespace ProyectoTaller2.C_Datos
                     p.telefono,
                     p.usuario,
                     Rol = p.rol_usuario.nombre,
-                    activo = (p.estadoUsuario == 1) ? "Si" : "No" ,
+                    activo = (p.estadoUsuario == 1) ? "Si" : "No",
                     p.id_usuario
                 });
 
@@ -265,14 +268,14 @@ namespace ProyectoTaller2.C_Datos
         public static string getFullName(int id)
         {
             using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
-                {
+            {
                 var user = db.usuarios.Find(id);
 
-                return $"{user.nombre} {user.apellido}"; 
-                    
-                }
+                return $"{user.nombre} {user.apellido}";
 
-                
+            }
+
+
         }
 
         public static int getSellerIdByDni(int dni)
@@ -281,24 +284,37 @@ namespace ProyectoTaller2.C_Datos
             {
 
                 var lst = db.usuarios.Where(u => u.dni.Equals(dni)).Select(u => u.id_usuario).First();
-                
+
 
                 return lst;
             }
         }
-        
+
         public static object getSellers()
         {
             using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
             {
 
-                var lst = db.usuarios.Where(u => u.rol_id.Equals(1)).Select(u => new 
-                                                                          { u.id_usuario,
-                                                                            NomYApeDNI = u.nombre + " " + u.apellido + " " + u.dni});
+                var lst = db.usuarios.Where(u => u.rol_id.Equals(1)).Select(u => new
+                {
+                    u.id_usuario,
+                    NomYApeDNI = u.nombre + " " + u.apellido + " " + u.dni
+                });
 
                 return lst.ToList();
             }
         }
 
+        public static int getActiveSellersCount()
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                int count = db.usuarios.Where(u => u.rol_id.Equals(1) && u.estadoUsuario.Equals(1)).Count();
+
+                return count;
+            }
+
+
+        }
     }
 }

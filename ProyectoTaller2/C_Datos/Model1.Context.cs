@@ -13,10 +13,10 @@ namespace ProyectoTaller2.C_Datos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TALLER2CSEntities1 : DbContext
+    public partial class TALLER2CSEntities3 : DbContext
     {
-        public TALLER2CSEntities1()
-            : base("name=TALLER2CSEntities1")
+        public TALLER2CSEntities3()
+            : base("name=TALLER2CSEntities3")
         {
         }
     
@@ -25,7 +25,15 @@ namespace ProyectoTaller2.C_Datos
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<categoria_productos> categoria_productos { get; set; }
+        public virtual DbSet<clientes> clientes { get; set; }
+        public virtual DbSet<marcas> marcas { get; set; }
+        public virtual DbSet<metodo_pago> metodo_pago { get; set; }
+        public virtual DbSet<productos> productos { get; set; }
+        public virtual DbSet<proveedores> proveedores { get; set; }
         public virtual DbSet<rol_usuario> rol_usuario { get; set; }
         public virtual DbSet<usuarios> usuarios { get; set; }
+        public virtual DbSet<venta_detalle> venta_detalle { get; set; }
+        public virtual DbSet<ventas> ventas { get; set; }
     }
 }

@@ -12,25 +12,18 @@ namespace ProyectoTaller2.C_Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class ventas
+    public partial class metodo_pago
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ventas()
+        public metodo_pago()
         {
-            this.venta_detalle = new HashSet<venta_detalle>();
+            this.ventas = new HashSet<ventas>();
         }
     
-        public int id_venta { get; set; }
-        public int id_cliente { get; set; }
-        public int id_usuario { get; set; }
-        public System.DateTime fecha { get; set; }
-        public double precio_total { get; set; }
-        public int id_metodoPago { get; set; }
+        public int id_metodopago { get; set; }
+        public string descripcion { get; set; }
     
-        public virtual clientes clientes { get; set; }
-        public virtual metodo_pago metodo_pago { get; set; }
-        public virtual usuarios usuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<venta_detalle> venta_detalle { get; set; }
+        public virtual ICollection<ventas> ventas { get; set; }
     }
 }

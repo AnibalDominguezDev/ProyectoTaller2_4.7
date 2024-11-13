@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoTaller2.C_Presentacion.Login;
 
 namespace ProyectoTaller2.C_Presentacion.Vendedor
 {
     public partial class MenuVendedor : Form
     {
-        public MenuVendedor()
+        private string nombreUsuario;
+        public MenuVendedor(string nombreCompleto)
         {
             InitializeComponent();
+            this.nombreUsuario = nombreCompleto;
+            lblNomUsuario.Text = $"Conectado como: {this.nombreUsuario}";
         }
 
         private void CargarFormularioEnPanel(Form formulario, Panel panelDestino)
@@ -34,7 +38,8 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
 
         private void btnAltaCliente_Click(object sender, EventArgs e)
         {
-            CargarFormularioEnPanel(new AltaCliente(), panelMuestra);
+            //CargarFormularioEnPanel(new AltaCliente(), panelMuestra);
+            CargarFormularioEnPanel(new GestionCliente(), panelMuestra);
         }
 
         private void btnListaProductos_Click(object sender, EventArgs e)
@@ -49,16 +54,21 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
-            CargarFormularioEnPanel(new RealizarVenta(), panelMuestra);
+            CargarFormularioEnPanel(new RealizarVenta(this.nombreUsuario), panelMuestra);
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
+            
+            FormLogin loginForm = new FormLogin();
+
             var result = MessageBox.Show("Seguro que desea cerrar la sesion actual?", "Cerrar sesion",
                               MessageBoxButtons.YesNo,
                               MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes) this.Close();
+
+            loginForm.ShowDialog();
         }
     }
 }

@@ -177,6 +177,10 @@ namespace ProyectoTaller2.C_Logica
             return DUsuarios.getSellerIdByDni(dni);
         }
 
+        public static int contarVendedoresActivos()
+        {
+            return DUsuarios.getActiveSellersCount();
+        }
         public static object ListarVendedores()
         {
             return DUsuarios.getSellers();

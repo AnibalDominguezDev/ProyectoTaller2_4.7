@@ -35,13 +35,14 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblDetalleDeVenta = new System.Windows.Forms.Label();
             this.panelFooter = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPrecioTotal = new System.Windows.Forms.Label();
             this.dgbDetalleProductos = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelHeader.SuspendLayout();
             this.panelFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgbDetalleProductos)).BeginInit();
@@ -113,22 +114,22 @@
             // panelFooter
             // 
             this.panelFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.panelFooter.Controls.Add(this.label1);
+            this.panelFooter.Controls.Add(this.lblPrecioTotal);
             this.panelFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelFooter.Location = new System.Drawing.Point(0, 461);
             this.panelFooter.Name = "panelFooter";
             this.panelFooter.Size = new System.Drawing.Size(804, 100);
             this.panelFooter.TabIndex = 1;
             // 
-            // label1
+            // lblPrecioTotal
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(618, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 32);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Total: (precio)";
+            this.lblPrecioTotal.AutoSize = true;
+            this.lblPrecioTotal.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lblPrecioTotal.Location = new System.Drawing.Point(618, 35);
+            this.lblPrecioTotal.Name = "lblPrecioTotal";
+            this.lblPrecioTotal.Size = new System.Drawing.Size(174, 32);
+            this.lblPrecioTotal.TabIndex = 4;
+            this.lblPrecioTotal.Text = "Total: (precio)";
             // 
             // dgbDetalleProductos
             // 
@@ -137,11 +138,12 @@
             this.dgbDetalleProductos.ColumnHeadersHeight = 40;
             this.dgbDetalleProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgbDetalleProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
+            this.productoId,
             this.colNombre,
             this.colDescripcion,
             this.colCantidad,
-            this.colPrecioUnitario});
+            this.colPrecioUnitario,
+            this.colSubTotal});
             this.dgbDetalleProductos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dgbDetalleProductos.Location = new System.Drawing.Point(6, 125);
             this.dgbDetalleProductos.Name = "dgbDetalleProductos";
@@ -149,13 +151,13 @@
             this.dgbDetalleProductos.Size = new System.Drawing.Size(786, 330);
             this.dgbDetalleProductos.TabIndex = 2;
             // 
-            // colID
+            // productoId
             // 
-            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colID.Width = 43;
+            this.productoId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.productoId.HeaderText = "CodProducto";
+            this.productoId.Name = "productoId";
+            this.productoId.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.productoId.Width = 120;
             // 
             // colNombre
             // 
@@ -184,6 +186,11 @@
             this.colPrecioUnitario.HeaderText = "Precio Unit";
             this.colPrecioUnitario.Name = "colPrecioUnitario";
             this.colPrecioUnitario.Width = 78;
+            // 
+            // colSubTotal
+            // 
+            this.colSubTotal.HeaderText = "SubTotal";
+            this.colSubTotal.Name = "colSubTotal";
             // 
             // DetalleVenta
             // 
@@ -217,13 +224,14 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblDetalleDeVenta;
         private System.Windows.Forms.Panel panelFooter;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPrecioTotal;
         private System.Windows.Forms.Button btnGuardarPdf;
         private System.Windows.Forms.DataGridView dgbDetalleProductos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubTotal;
     }
 }

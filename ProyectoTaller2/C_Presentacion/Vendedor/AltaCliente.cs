@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoTaller2.C_Logica;
 
 namespace ProyectoTaller2.C_Presentacion.Vendedor
 {
@@ -31,7 +32,24 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (this.todosLosCamposValidos()) return;
+            if (this.todosLosCamposValidos())
+            {
+                if (new Clientes().guardarCliente(txtNomAltaC.Text, txtApeAltaC.Text, txtDniAltaC.Text, txtTelC.Text, txtDirAltaC.Text, txtMailAltaC.Text))
+                {
+                    MessageBox.Show("Cliente agregado ocn exito", "Exito", MessageBoxButtons.OK);
+
+                    txtNomAltaC.Clear();
+                    txtApeAltaC.Clear();
+                    txtDniAltaC.Clear();
+                    txtTelC.Clear();
+                    txtDirAltaC.Clear();
+                    txtMailAltaC.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrio un error al agregar el cliente", "Error", MessageBoxButtons.OK);
+                }
+            };
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

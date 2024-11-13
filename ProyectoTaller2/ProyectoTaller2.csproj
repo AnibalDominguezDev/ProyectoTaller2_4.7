@@ -57,18 +57,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="C_Datos\categoria_productos.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="C_Datos\clientes.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="C_Datos\DClientes.cs" />
     <Compile Include="C_Datos\DDB.cs" />
+    <Compile Include="C_Datos\DLogin.cs" />
+    <Compile Include="C_Datos\DMetodoPago.cs" />
     <Compile Include="C_Datos\DProductos.cs" />
     <Compile Include="C_Datos\DProveedores.cs" />
     <Compile Include="C_Datos\DUsuarios.cs" />
     <Compile Include="C_Datos\DVentas.cs" />
+    <Compile Include="C_Datos\DVenta_Detalle.cs" />
     <Compile Include="C_Datos\marcas.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C_Datos\metodo_pago.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="C_Datos\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -85,46 +92,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="C_Datos\Model3.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C_Datos\Model3.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C_Datos\Model3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model3.edmx</DependentUpon>
-    </Compile>
     <Compile Include="C_Datos\productos.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="C_Datos\proveedores.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="C_Datos\rol_usuario.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="C_Datos\usuarios.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="C_Datos\ventas.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="C_Datos\venta_detalle.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="C_Logica\Categorias.cs" />
+    <Compile Include="C_Logica\Clientes.cs" />
     <Compile Include="C_Logica\DB.cs" />
+    <Compile Include="C_Logica\LoginL.cs" />
     <Compile Include="C_Logica\Marcas.cs" />
+    <Compile Include="C_Logica\MetodoPago.cs" />
     <Compile Include="C_Logica\Productos.cs" />
     <Compile Include="C_Logica\Proveedores.cs" />
     <Compile Include="C_Logica\Usuarios.cs" />
     <Compile Include="C_Logica\Ventas.cs" />
+    <Compile Include="C_Logica\Venta_Detalle.cs" />
     <Compile Include="C_Presentacion\Administrador\AgregarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,12 +199,13 @@
     <Compile Include="C_Presentacion\Administrador\NuevaMarca.Designer.cs">
       <DependentUpon>NuevaMarca.cs</DependentUpon>
     </Compile>
-    <Compile Include="C_Presentacion\Login\Login.cs">
+    <Compile Include="C_Presentacion\Login\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="C_Presentacion\Login\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="C_Presentacion\Login\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="C_Presentacion\Login\Sesion.cs" />
     <Compile Include="C_Presentacion\Supervisor\AgregarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +243,14 @@
     <Compile Include="C_Presentacion\Vendedor\AltaCliente.Designer.cs">
       <DependentUpon>AltaCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="C_Presentacion\Vendedor\EditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\EditarCliente.Designer.cs" />
+    <Compile Include="C_Presentacion\Vendedor\GestionCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\GestionCliente.Designer.cs" />
     <Compile Include="C_Presentacion\Vendedor\ListarProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,8 +272,12 @@
     <Compile Include="C_Presentacion\Vendedor\RealizarVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="C_Presentacion\Vendedor\RealizarVenta.Designer.cs">
-      <DependentUpon>RealizarVenta.cs</DependentUpon>
+    <Compile Include="C_Presentacion\Vendedor\RealizarVenta.Designer.cs" />
+    <Compile Include="C_Presentacion\Vendedor\RealizarVenta1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Presentacion\Vendedor\RealizarVenta1.Designer.cs">
+      <DependentUpon>RealizarVenta1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -311,8 +320,8 @@
     <EmbeddedResource Include="C_Presentacion\Administrador\NuevaMarca.resx">
       <DependentUpon>NuevaMarca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="C_Presentacion\Login\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="C_Presentacion\Login\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="C_Presentacion\Supervisor\AgregarUsuario.resx">
       <DependentUpon>AgregarUsuario.cs</DependentUpon>
@@ -332,6 +341,8 @@
     <EmbeddedResource Include="C_Presentacion\Vendedor\AltaCliente.resx">
       <DependentUpon>AltaCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="C_Presentacion\Vendedor\EditarCliente.resx" />
+    <EmbeddedResource Include="C_Presentacion\Vendedor\GestionCliente.resx" />
     <EmbeddedResource Include="C_Presentacion\Vendedor\ListarProductos.resx">
       <DependentUpon>ListarProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -341,8 +352,9 @@
     <EmbeddedResource Include="C_Presentacion\Vendedor\MenuVendedor.resx">
       <DependentUpon>MenuVendedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="C_Presentacion\Vendedor\RealizarVenta.resx">
-      <DependentUpon>RealizarVenta.cs</DependentUpon>
+    <EmbeddedResource Include="C_Presentacion\Vendedor\RealizarVenta.resx" />
+    <EmbeddedResource Include="C_Presentacion\Vendedor\RealizarVenta1.resx">
+      <DependentUpon>RealizarVenta1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -360,13 +372,6 @@
     </EntityDeploy>
     <None Include="C_Datos\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
-    <EntityDeploy Include="C_Datos\Model3.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model3.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="C_Datos\Model3.edmx.diagram">
-      <DependentUpon>Model3.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -386,26 +391,6 @@
     <None Include="Resources\logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="C_Datos\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="C_Datos\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
-    <Content Include="C_Datos\Model3.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model3.edmx</DependentUpon>
-      <LastGenOutput>Model3.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="C_Datos\Model3.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model3.edmx</DependentUpon>
-      <LastGenOutput>Model3.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\imgFondo.jpg" />
     <None Include="Resources\carro-de-compras-rapido.png" />
     <None Include="Resources\lista-venta.png" />
@@ -423,6 +408,17 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="C_Datos\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="C_Datos\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
