@@ -55,7 +55,8 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
 
         private void btnFiltroVen_Click(object sender, EventArgs e)
         {
-            gridListaVentas.DataSource = Ventas.obtenerVentasPorVendedor(3, dtpDesde.Value, dtpHasta.Value);
+            int idVendedor = Sesion.IdUsuarioConectado;
+            gridListaVentas.DataSource = Ventas.obtenerVentasPorVendedor(idVendedor, dtpDesde.Value, dtpHasta.Value);
         }
     }
 }
