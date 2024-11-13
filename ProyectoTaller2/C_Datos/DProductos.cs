@@ -104,6 +104,27 @@ namespace ProyectoTaller2.C_Datos
             }
         }
 
+        public static List<object> ObtenerListaProductosPorCategoria(int id)
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                var lista = from productos in db.productos
+                            where productos.estado_producto == 1 && productos.id_categoria == id
+                            join categoria_productos in db.categoria_productos on productos.id_categoria equals categoria_productos.id_categoria
+                            select new
+                            {
+                                productos.id_producto,
+                                productos.nombre,
+                                productos.descripcion,
+                                productos.stock,
+                                productos.precio,
+                                categoriaNombre = categoria_productos.nombre,
+                                productos.cod_producto
+                            };
+                return lista.ToList<object>();
+            }
+        }
+
         public static List<object> ObtenerProductosDisponibles()
         {
             using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
@@ -190,7 +211,7 @@ namespace ProyectoTaller2.C_Datos
                     p.precio,
                     p.stock,
                     p.stock_minimo,
-                    catNombre = p.categoria_productos.nombre,
+                    categoriaNombre = p.categoria_productos.nombre,
                     p.estado_producto
                 });
 

@@ -128,6 +128,7 @@
             this.btxFiltrar.TabIndex = 12;
             this.btxFiltrar.Text = "Filtrar";
             this.btxFiltrar.UseVisualStyleBackColor = true;
+            this.btxFiltrar.Click += new System.EventHandler(this.btxFiltrar_Click);
             // 
             // cbxFiltrarCategoria
             // 

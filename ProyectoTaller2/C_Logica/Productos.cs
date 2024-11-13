@@ -49,6 +49,7 @@ namespace ProyectoTaller2.C_Logica
             return DProductos.ObtenerListaProductos();
         }
 
+
         public static List<object> listarProductosPorNombre(string nombre)
         {
             return DProductos.ProductosPorNombre(nombre);
@@ -100,7 +101,10 @@ namespace ProyectoTaller2.C_Logica
             }
         }
 
-
+        public static int getCategoria(string categoria)
+        {
+            return DProductos.getCategoryId(categoria);
+        }
         public static bool editarProducto(int id,string codProducto, string nombre, string desc, string precio, string stock, string stock_min, string categoria, string marca, string proveedor)
         {
             productos editar = new productos();
@@ -147,17 +151,17 @@ namespace ProyectoTaller2.C_Logica
             return DProductos.seachProductByCode(codigo);
         }
 
-        public static object listarCategorias() //separar
+        public static object listarCategorias() 
         {
            return DProductos.getCategories();
         }
 
-        public static object listarMarcas()//separar
+        public static object listarMarcas()
         {
             return DProductos.getBrands();
         }
 
-        public static object listarProveedores()//separar
+        public static object listarProveedores()
         {
             return DProductos.getSuppliers();
         }

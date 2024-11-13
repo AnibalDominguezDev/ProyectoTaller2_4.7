@@ -20,21 +20,29 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
 
         private void ListarProductos_Load(object sender, EventArgs e)
         {
+            ConfigurarColumnasDataGridView();
             lstProductos();
-           // ConfigurarColumnasDataGridView();
+            lstCategorias();
             
+        }
+
+        private void lstCategorias()
+        {
+            cbxFiltrarCategoria.DataSource = Productos.listarCategorias();
+            cbxFiltrarCategoria.DisplayMember = "nombre";
+            cbxFiltrarCategoria.SelectedIndex = -1;
         }
 
         private void ConfigurarColumnasDataGridView()
         {
             dgbDetalleProductos.AutoGenerateColumns = false;
 
-            //dgbDetalleProductos.Columns["colCodPrenda"].DataPropertyName = "cod_producto";
-            dgbDetalleProductos.Columns["ColNomP"].DataPropertyName = "producto.nombre";
-            dgbDetalleProductos.Columns["ColDescrip"].DataPropertyName = "descripcion";
+            dgbDetalleProductos.Columns["colCodPrenda"].DataPropertyName = "cod_producto";
+            dgbDetalleProductos.Columns["colNombreProducto"].DataPropertyName = "nombre";
+            dgbDetalleProductos.Columns["colDescripcion"].DataPropertyName = "descripcion";
             dgbDetalleProductos.Columns["ColStock"].DataPropertyName = "stock";
-            dgbDetalleProductos.Columns["ColPrecio"].DataPropertyName = "precio";
-            dgbDetalleProductos.Columns["ColCate"].DataPropertyName = "categoriaNombre";
+            dgbDetalleProductos.Columns["colPrecioUnit"].DataPropertyName = "precio";
+            dgbDetalleProductos.Columns["colCategoria"].DataPropertyName = "categoriaNombre";
         }
 
         private void lstProductos()
@@ -56,6 +64,11 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
             {
                 MessageBox.Show("Ocurrió un error al buscar los productos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btxFiltrar_Click(object sender, EventArgs e)
+        {
+            dgbDetalleProductos.DataSource = Productos.listarProductosPorCategoria(cbxFiltrarCategoria.Text);
         }
     }
 }
