@@ -178,6 +178,7 @@
             this.Name = "MenuVendedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clothing store: Vendedor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuVendedor_FormClosing);
             this.panelMenuVendedor.ResumeLayout(false);
             this.panelMenuVendedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogoV)).EndInit();

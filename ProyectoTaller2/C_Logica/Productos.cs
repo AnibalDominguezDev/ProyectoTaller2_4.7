@@ -22,6 +22,7 @@ namespace ProyectoTaller2.C_Logica
         private int id_marca { get; set; }
         private string marcaNombre;
         private int id_proveedor { get; set; }
+        private string nombreProveedor;
 
 
 
@@ -41,6 +42,7 @@ namespace ProyectoTaller2.C_Logica
             this.id_proveedor = id_proveedor;
             this.catNombre = DProductos.getCategoryById(id_categoria);
             this.marcaNombre = DProductos.getBrandById(id_marca);
+            this.nombreProveedor = DProveedores.getSupplierName(id_proveedor);
 
         }
 
@@ -66,6 +68,8 @@ namespace ProyectoTaller2.C_Logica
         public int getIdMarca() {  return this.id_marca;}
         public int getIdProveedor() { return this.id_proveedor;}
         public string getCategoriaNombre() { return this.catNombre; }
+        public string getMarcaNombre() {  return this.marcaNombre; }
+        public string getNombreProveedor() { return this.nombreProveedor;}
 
 
 

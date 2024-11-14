@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoTaller2.C_Datos;
 using ProyectoTaller2.C_Logica;
 using ProyectoTaller2.C_Presentacion.Administrador;
 using ProyectoTaller2.C_Presentacion.Supervisor;
@@ -48,6 +49,12 @@ namespace ProyectoTaller2.C_Presentacion.Login
 
                 string nombreCompleto = Usuarios.getNombreCompleto(idUsuario);
 
+                if (LoginL.estaActivo(idUsuario))
+                {
+                    MessageBox.Show("El usuario ingresado se encuentra Deshabilitado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 if (rollUsuario == 1)
                 {
                     MenuVendedor menu = new MenuVendedor(nombreCompleto);
@@ -72,6 +79,17 @@ namespace ProyectoTaller2.C_Presentacion.Login
                 }
 
             }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            //this.Close();
+            Application.Exit();
+        }
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

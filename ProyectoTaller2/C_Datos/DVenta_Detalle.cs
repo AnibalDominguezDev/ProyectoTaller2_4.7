@@ -19,26 +19,34 @@ namespace ProyectoTaller2.C_Datos
                 {
                     dbv.venta_detalle.Add(nuevaVenta);
 
-
                     if (nuevaVenta.id_producto != 0)
                     {
-                        int actualizar = 0;
                         using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
                         {
                             var producto = db.productos.Find(nuevaVenta.id_producto);
+
+                            // Validación de stock
                             if (producto != null)
                             {
-                                actualizar = producto.stock - nuevaVenta.cantidad;
-                                producto.stock = actualizar;
-
-                                db.SaveChanges();
+                                if (producto.stock >= nuevaVenta.cantidad)
+                                {
+                                    // Si hay suficiente stock, actualizamos
+                                    producto.stock -= nuevaVenta.cantidad;
+                                    db.SaveChanges();
+                                }
+                                else
+                                {
+                                    // Stock insuficiente, operación fallida
+                                    Console.WriteLine("Stock insuficiente para completar la venta.");
+                                    return false;
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Error al actualizae el stock.");
+                                Console.WriteLine("Producto no encontrado.");
+                                return false;
                             }
                         }
-
                     }
 
                     dbv.SaveChanges();
@@ -49,7 +57,6 @@ namespace ProyectoTaller2.C_Datos
             catch (Exception error)
             {
                 Console.Error.WriteLine(error.Message);
-                MessageBox.Show(error.InnerException.Message);
                 return false;
             }
         }

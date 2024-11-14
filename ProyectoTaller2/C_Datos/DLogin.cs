@@ -45,5 +45,17 @@ namespace ProyectoTaller2.C_Datos
                 return -1;
             }
         }
+
+        public static bool isActive(int id)
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                var user = db.usuarios.Find(id);
+                Console.WriteLine(user.estadoUsuario);
+
+                return (user != null && !user.estadoUsuario.Equals(1));
+                
+            }
+        }
     }
 }

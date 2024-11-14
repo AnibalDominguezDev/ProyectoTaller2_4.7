@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnLoginIniciar = new System.Windows.Forms.Button();
             this.lblLoginBienvenido = new System.Windows.Forms.Label();
             this.txtLoginPass = new System.Windows.Forms.TextBox();
@@ -48,6 +49,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Controls.Add(this.btnLoginIniciar);
             this.panel1.Controls.Add(this.lblLoginBienvenido);
             this.panel1.Controls.Add(this.txtLoginPass);
@@ -60,6 +62,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(288, 461);
             this.panel1.TabIndex = 1;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(73, 414);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 12;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnLoginIniciar
             // 
@@ -91,6 +103,7 @@
             this.txtLoginPass.Name = "txtLoginPass";
             this.txtLoginPass.Size = new System.Drawing.Size(184, 20);
             this.txtLoginPass.TabIndex = 9;
+            this.txtLoginPass.UseSystemPasswordChar = true;
             // 
             // txtLoginInicio
             // 
@@ -145,7 +158,7 @@
             this.errorProvider.BlinkRate = 300;
             this.errorProvider.ContainerControl = this;
             // 
-            // Login
+            // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,9 +166,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pbxFondo);
             this.MaximizeBox = false;
-            this.Name = "Login";
+            this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLogin_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLoginInicio)).EndInit();
@@ -177,5 +191,6 @@
         private System.Windows.Forms.Label lblLoginBienvenido;
         private System.Windows.Forms.Button btnLoginIniciar;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

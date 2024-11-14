@@ -189,6 +189,7 @@
             this.colVerDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colVerDetalle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colVerDetalle.Text = "Ver detalle";
+            this.colVerDetalle.UseColumnTextForButtonValue = true;
             this.colVerDetalle.Width = 80;
             // 
             // ListarVentasRealizadas

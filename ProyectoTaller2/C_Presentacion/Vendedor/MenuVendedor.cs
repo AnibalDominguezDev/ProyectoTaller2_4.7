@@ -70,5 +70,10 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
 
             loginForm.ShowDialog();
         }
+
+        private void MenuVendedor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

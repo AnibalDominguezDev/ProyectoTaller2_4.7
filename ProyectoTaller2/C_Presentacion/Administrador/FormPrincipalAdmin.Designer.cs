@@ -182,6 +182,7 @@
             this.Name = "FormPrincipalAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clothing Store: Administrador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipalAdmin_FormClosing);
             this.PanelMenuAdmin.ResumeLayout(false);
             this.PanelMenuAdmin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();

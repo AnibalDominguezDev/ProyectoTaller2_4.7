@@ -35,7 +35,7 @@ namespace ProyectoTaller2.C_Logica
         public int getIdUsuario() { return this.idUsuario; }
         public DateTime getFecha() { return this.fechaV; }
         public double getTotalVenta() { return this.totalVenta; }
-        private int getMetodoPago() { return this.metodo_pago; }
+        public int getMetodoPago() { return this.metodo_pago; }
 
         public bool guardarVenta(int p_idcliente, int p_idusuario, DateTime p_fechaV, float p_total, int metodoPago)
         {
@@ -100,6 +100,11 @@ namespace ProyectoTaller2.C_Logica
         public static object obtenerListaVentasPorID(int id)
         {
             return DVentas.getSalesById(id);
+        }
+
+        public static string getMetodoPagobyId(int id)
+        {
+            return DVentas.getPaymentMethodById(id);
         }
 
         public static object obtenerListaVentasPorDni(string rol,int dni)

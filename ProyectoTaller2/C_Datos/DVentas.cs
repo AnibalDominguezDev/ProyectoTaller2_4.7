@@ -187,5 +187,16 @@ namespace ProyectoTaller2.C_Datos
                 return lst;
             }
         }
+
+        public static string getPaymentMethodById(int id)
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                var lst = db.metodo_pago.Find(id);
+
+                if (lst != null) return lst.descripcion;
+                else return "Efectivo";
+            }
+        }
     }
 }

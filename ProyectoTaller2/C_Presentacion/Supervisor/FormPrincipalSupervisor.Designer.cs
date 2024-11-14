@@ -153,6 +153,7 @@
             this.Name = "FormPrincipalSupervisor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clothing Store: Supervisor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipalSupervisor_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();

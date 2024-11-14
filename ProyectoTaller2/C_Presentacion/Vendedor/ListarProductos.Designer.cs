@@ -39,7 +39,6 @@
             this.btxFiltrar = new System.Windows.Forms.Button();
             this.cbxFiltrarCategoria = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbxBuscarPor = new System.Windows.Forms.ComboBox();
             this.tbxBuscarProducto = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblBuscar = new System.Windows.Forms.Label();
@@ -109,7 +108,6 @@
             this.gbxProductos.Controls.Add(this.btxFiltrar);
             this.gbxProductos.Controls.Add(this.cbxFiltrarCategoria);
             this.gbxProductos.Controls.Add(this.label1);
-            this.gbxProductos.Controls.Add(this.cbxBuscarPor);
             this.gbxProductos.Controls.Add(this.tbxBuscarProducto);
             this.gbxProductos.Controls.Add(this.btnBuscar);
             this.gbxProductos.Controls.Add(this.lblBuscar);
@@ -151,17 +149,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Filtrar por categoria:";
             // 
-            // cbxBuscarPor
-            // 
-            this.cbxBuscarPor.FormattingEnabled = true;
-            this.cbxBuscarPor.Items.AddRange(new object[] {
-            "Cod Prenda",
-            "Nombre"});
-            this.cbxBuscarPor.Location = new System.Drawing.Point(549, 82);
-            this.cbxBuscarPor.Name = "cbxBuscarPor";
-            this.cbxBuscarPor.Size = new System.Drawing.Size(85, 21);
-            this.cbxBuscarPor.TabIndex = 9;
-            // 
             // tbxBuscarProducto
             // 
             this.tbxBuscarProducto.Location = new System.Drawing.Point(640, 82);
@@ -183,11 +170,11 @@
             // 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F);
-            this.lblBuscar.Location = new System.Drawing.Point(456, 81);
+            this.lblBuscar.Location = new System.Drawing.Point(456, 80);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(87, 21);
+            this.lblBuscar.Size = new System.Drawing.Size(125, 21);
             this.lblBuscar.TabIndex = 4;
-            this.lblBuscar.Text = "Buscar por:";
+            this.lblBuscar.Text = "Buscar producto:";
             // 
             // lblProductos
             // 
@@ -236,7 +223,6 @@
         private System.Windows.Forms.Button btxFiltrar;
         private System.Windows.Forms.ComboBox cbxFiltrarCategoria;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxBuscarPor;
         private System.Windows.Forms.TextBox tbxBuscarProducto;
     }
 }

@@ -46,20 +46,23 @@ namespace ProyectoTaller2.C_Datos
             {
                 string connectionString = "Server=DESKTOP-C6OKO8R\\SQLEXPRESS; Database=master; Integrated Security=True;";
 
-
-                using (TALLER2CSEntities3 taller2cs = new TALLER2CSEntities3())
-                {
-                    taller2cs.Dispose();
-                }
-
                 using (SqlConnection db = new SqlConnection(connectionString))
                 {
 
-
                     string dbName = "taller2cs";
+
+                    string closeConecctionsQuery = $"ALTER DATABASE {dbName} SET SINGLE_USER WITH ROLLBACK IMMEDIATE;  ALTER DATABASE {dbName} SET MULTI_USER;";
+
                     string query = $"RESTORE DATABASE {dbName} FROM DISK = '{path}' WITH REPLACE, RECOVERY;";
 
                     db.Open();
+
+
+                    using (SqlCommand cmd = new SqlCommand(closeConecctionsQuery,db))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+
 
                     using (SqlCommand command = new SqlCommand(query, db))
                     {

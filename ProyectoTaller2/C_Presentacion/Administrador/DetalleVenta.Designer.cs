@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.btnGuardarPdf = new System.Windows.Forms.Button();
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblVendedor = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnGuardarPdf = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panelFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgbDetalleProductos)).BeginInit();
@@ -61,15 +61,6 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(804, 119);
             this.panelHeader.TabIndex = 0;
-            // 
-            // btnGuardarPdf
-            // 
-            this.btnGuardarPdf.Location = new System.Drawing.Point(688, 54);
-            this.btnGuardarPdf.Name = "btnGuardarPdf";
-            this.btnGuardarPdf.Size = new System.Drawing.Size(82, 33);
-            this.btnGuardarPdf.TabIndex = 4;
-            this.btnGuardarPdf.Text = "Guardar PDF";
-            this.btnGuardarPdf.UseVisualStyleBackColor = true;
             // 
             // lblCliente
             // 
@@ -192,6 +183,16 @@
             this.colSubTotal.HeaderText = "SubTotal";
             this.colSubTotal.Name = "colSubTotal";
             // 
+            // btnGuardarPdf
+            // 
+            this.btnGuardarPdf.Location = new System.Drawing.Point(678, 73);
+            this.btnGuardarPdf.Name = "btnGuardarPdf";
+            this.btnGuardarPdf.Size = new System.Drawing.Size(114, 33);
+            this.btnGuardarPdf.TabIndex = 4;
+            this.btnGuardarPdf.Text = "Guardar PDF";
+            this.btnGuardarPdf.UseVisualStyleBackColor = true;
+            this.btnGuardarPdf.Click += new System.EventHandler(this.btnGuardarPdf_Click);
+            // 
             // DetalleVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,7 +226,6 @@
         private System.Windows.Forms.Label lblDetalleDeVenta;
         private System.Windows.Forms.Panel panelFooter;
         private System.Windows.Forms.Label lblPrecioTotal;
-        private System.Windows.Forms.Button btnGuardarPdf;
         private System.Windows.Forms.DataGridView dgbDetalleProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn productoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
@@ -233,5 +233,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSubTotal;
+        private System.Windows.Forms.Button btnGuardarPdf;
     }
 }

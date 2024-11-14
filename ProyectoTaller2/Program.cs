@@ -24,6 +24,7 @@ namespace ProyectoTaller2
             //Application.Run(new FormPrincipalSupervisor());
             //Application.Run(new MenuVendedor());
             Application.Run(new FormLogin());
+            
         }
     }
 }

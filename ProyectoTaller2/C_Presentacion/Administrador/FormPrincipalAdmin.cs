@@ -70,5 +70,10 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
 
             loginForm.Show();
         }
+
+        private void FormPrincipalAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

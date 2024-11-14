@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lvlVendedoresActivos = new System.Windows.Forms.Label();
             this.lblGanancias = new System.Windows.Forms.Label();
@@ -57,7 +57,6 @@
             this.lblEstadisticasVentas = new System.Windows.Forms.Label();
             this.chartVentasGenerales = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.testEstats = new System.Windows.Forms.Button();
             this.lblVendedor = new System.Windows.Forms.Label();
             this.btnBuscarV = new System.Windows.Forms.Button();
             this.cbxVendedores = new System.Windows.Forms.ComboBox();
@@ -214,23 +213,22 @@
             // 
             // chartVentasGenerales
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chartVentasGenerales.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chartVentasGenerales.Legends.Add(legend8);
+            chartArea1.Name = "ChartArea1";
+            this.chartVentasGenerales.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartVentasGenerales.Legends.Add(legend1);
             this.chartVentasGenerales.Location = new System.Drawing.Point(23, 59);
             this.chartVentasGenerales.Name = "chartVentasGenerales";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.chartVentasGenerales.Series.Add(series8);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartVentasGenerales.Series.Add(series1);
             this.chartVentasGenerales.Size = new System.Drawing.Size(809, 300);
             this.chartVentasGenerales.TabIndex = 0;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.testEstats);
             this.tabPage2.Controls.Add(this.lblVendedor);
             this.tabPage2.Controls.Add(this.btnBuscarV);
             this.tabPage2.Controls.Add(this.cbxVendedores);
@@ -246,21 +244,11 @@
             this.tabPage2.Text = "Vendedores";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // testEstats
-            // 
-            this.testEstats.Location = new System.Drawing.Point(505, 24);
-            this.testEstats.Name = "testEstats";
-            this.testEstats.Size = new System.Drawing.Size(75, 23);
-            this.testEstats.TabIndex = 14;
-            this.testEstats.Text = "Buscar";
-            this.testEstats.UseVisualStyleBackColor = true;
-            this.testEstats.Click += new System.EventHandler(this.testEstats_Click);
-            // 
             // lblVendedor
             // 
             this.lblVendedor.AutoSize = true;
             this.lblVendedor.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F);
-            this.lblVendedor.Location = new System.Drawing.Point(42, 24);
+            this.lblVendedor.Location = new System.Drawing.Point(469, 28);
             this.lblVendedor.Name = "lblVendedor";
             this.lblVendedor.Size = new System.Drawing.Size(74, 20);
             this.lblVendedor.TabIndex = 13;
@@ -268,7 +256,7 @@
             // 
             // btnBuscarV
             // 
-            this.btnBuscarV.Location = new System.Drawing.Point(320, 23);
+            this.btnBuscarV.Location = new System.Drawing.Point(747, 27);
             this.btnBuscarV.Name = "btnBuscarV";
             this.btnBuscarV.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarV.TabIndex = 11;
@@ -279,7 +267,7 @@
             // cbxVendedores
             // 
             this.cbxVendedores.FormattingEnabled = true;
-            this.cbxVendedores.Location = new System.Drawing.Point(128, 23);
+            this.cbxVendedores.Location = new System.Drawing.Point(555, 27);
             this.cbxVendedores.Name = "cbxVendedores";
             this.cbxVendedores.Size = new System.Drawing.Size(186, 21);
             this.cbxVendedores.TabIndex = 7;
@@ -306,34 +294,34 @@
             // 
             // chartGnanaciasVendedor
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chartGnanaciasVendedor.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chartGnanaciasVendedor.Legends.Add(legend6);
+            chartArea2.Name = "ChartArea1";
+            this.chartGnanaciasVendedor.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartGnanaciasVendedor.Legends.Add(legend2);
             this.chartGnanaciasVendedor.Location = new System.Drawing.Point(451, 111);
             this.chartGnanaciasVendedor.Name = "chartGnanaciasVendedor";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chartGnanaciasVendedor.Series.Add(series6);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartGnanaciasVendedor.Series.Add(series2);
             this.chartGnanaciasVendedor.Size = new System.Drawing.Size(413, 307);
             this.chartGnanaciasVendedor.TabIndex = 1;
             this.chartGnanaciasVendedor.Text = "chart2";
             // 
             // chartVentasVendedores
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chartVentasVendedores.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chartVentasVendedores.Legends.Add(legend7);
+            chartArea3.Name = "ChartArea1";
+            this.chartVentasVendedores.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartVentasVendedores.Legends.Add(legend3);
             this.chartVentasVendedores.Location = new System.Drawing.Point(6, 111);
             this.chartVentasVendedores.Name = "chartVentasVendedores";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.chartVentasVendedores.Series.Add(series7);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartVentasVendedores.Series.Add(series3);
             this.chartVentasVendedores.Size = new System.Drawing.Size(450, 307);
             this.chartVentasVendedores.TabIndex = 0;
             // 
@@ -414,34 +402,34 @@
             // 
             // chartCategoriaMasVendida
             // 
-            chartArea9.Name = "ChartArea1";
-            this.chartCategoriaMasVendida.ChartAreas.Add(chartArea9);
-            legend9.Name = "Legend1";
-            this.chartCategoriaMasVendida.Legends.Add(legend9);
+            chartArea4.Name = "ChartArea1";
+            this.chartCategoriaMasVendida.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartCategoriaMasVendida.Legends.Add(legend4);
             this.chartCategoriaMasVendida.Location = new System.Drawing.Point(420, 113);
             this.chartCategoriaMasVendida.Name = "chartCategoriaMasVendida";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.chartCategoriaMasVendida.Series.Add(series9);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartCategoriaMasVendida.Series.Add(series4);
             this.chartCategoriaMasVendida.Size = new System.Drawing.Size(413, 307);
             this.chartCategoriaMasVendida.TabIndex = 3;
             this.chartCategoriaMasVendida.Text = "chart3";
             // 
             // chartProductoMasVendido
             // 
-            chartArea10.Name = "ChartArea1";
-            this.chartProductoMasVendido.ChartAreas.Add(chartArea10);
-            legend10.Name = "Legend1";
-            this.chartProductoMasVendido.Legends.Add(legend10);
+            chartArea5.Name = "ChartArea1";
+            this.chartProductoMasVendido.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chartProductoMasVendido.Legends.Add(legend5);
             this.chartProductoMasVendido.Location = new System.Drawing.Point(1, 113);
             this.chartProductoMasVendido.Name = "chartProductoMasVendido";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series10.Legend = "Legend1";
-            series10.Name = "Series1";
-            this.chartProductoMasVendido.Series.Add(series10);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartProductoMasVendido.Series.Add(series5);
             this.chartProductoMasVendido.Size = new System.Drawing.Size(413, 307);
             this.chartProductoMasVendido.TabIndex = 2;
             this.chartProductoMasVendido.Text = "chart4";
@@ -509,6 +497,5 @@
         private System.Windows.Forms.DateTimePicker dtpPDesde;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblVendedor;
-        private System.Windows.Forms.Button testEstats;
     }
 }

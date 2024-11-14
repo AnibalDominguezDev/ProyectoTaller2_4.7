@@ -35,8 +35,8 @@ namespace ProyectoTaller2.C_Presentacion.Administrador
             tbxPrecio.Text = editar.getPrecio().ToString();
             tbxDescripcion.Text = editar.getDescripcion();
             cbxCategoria.Text = editar.getCategoriaNombre();
-            cbxMarca.SelectedIndex = editar.getIdMarca()-1;
-            cbxProveedor.SelectedIndex = editar.getIdProveedor()-1;
+            cbxMarca.Text = editar.getMarcaNombre();
+            cbxProveedor.Text = editar.getNombreProveedor();
             tbxStock.Text = editar.getStock().ToString();
             tbxStockMinimo.Text = editar.getStockMin().ToString();
 

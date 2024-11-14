@@ -21,5 +21,10 @@ namespace ProyectoTaller2.C_Logica
         {
             return datosUsuario.ObtenerID(nombreUsuario, contraseña);
         }
+
+        public static bool estaActivo(int id)
+        {
+            return DLogin.isActive(id);
+        }
     }
 }

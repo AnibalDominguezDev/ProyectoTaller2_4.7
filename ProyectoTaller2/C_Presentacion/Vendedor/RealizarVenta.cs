@@ -9,6 +9,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using ProyectoTaller2.C_Logica;
 using ProyectoTaller2.C_Presentacion.Login;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 
 namespace ProyectoTaller2.C_Presentacion.Vendedor
 {
@@ -86,7 +87,7 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
 
         private void gridVentaProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == gridVentaProducto.Columns["ColAgregar"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == gridVentaProducto.Columns["ColAgregar"].Index && e.RowIndex >= 0 && int.Parse(gridVentaProducto.Rows[e.RowIndex].Cells["ColStock"].Value.ToString()) != 0)
             {
                 int idPro = Convert.ToInt32(gridVentaProducto.Rows[e.RowIndex].Cells["Col_idPro"].Value);
                 string nombreProducto = gridVentaProducto.Rows[e.RowIndex].Cells["ColNomP"].Value.ToString();
@@ -389,6 +390,10 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
 
                 int idVendedor = Sesion.IdUsuarioConectado;
 
+                    
+
+
+ 
                 Ventas venta = new Ventas();
                 venta.guardarVenta(getIdCliente(), idVendedor, fechaSeleccionada, precioTotal, metodo_pago);
 

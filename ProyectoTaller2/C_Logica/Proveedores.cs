@@ -79,6 +79,11 @@ namespace ProyectoTaller2.C_Logica
             return DProveedores.changeSupplierState(id);
         }
 
+        public static string getNombreProbeedor(int id)
+        {
+            return DProveedores.getSupplierName(id);
+        }
+
         
     }
 }

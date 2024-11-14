@@ -152,5 +152,17 @@ namespace ProyectoTaller2.C_Datos
 
             }
         }
+
+        public static string getSupplierName(int id) 
+        { 
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                var lst = db.proveedores.Find(id);
+
+                if (lst != null) return lst.nombre;
+                else return "No encontrado";
+            }
+        
+        }
     }
 }

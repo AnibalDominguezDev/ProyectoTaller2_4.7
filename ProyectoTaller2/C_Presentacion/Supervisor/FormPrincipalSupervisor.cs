@@ -57,5 +57,10 @@ namespace ProyectoTaller2.C_Presentacion.Supervisor
 
             loginForm.Show();
         }
+
+        private void FormPrincipalSupervisor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
