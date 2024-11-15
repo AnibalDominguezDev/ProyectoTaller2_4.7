@@ -438,5 +438,17 @@ namespace ProyectoTaller2.C_Datos
                 return lst;
             }
         }
+
+        public static int getCurrentStock(int id)
+        {
+            using (TALLER2CSEntities3 db = new TALLER2CSEntities3())
+            {
+                var stock = db.productos.Find(id);
+
+                if (stock != null) return stock.stock;
+                else return 0;
+
+            }
+        }
     }
 }

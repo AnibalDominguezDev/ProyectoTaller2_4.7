@@ -165,8 +165,10 @@ namespace ProyectoTaller2.C_Presentacion.Vendedor
                 DataGridViewRow row = gridRealizarVenta.Rows[e.RowIndex];
                 int cantidad = Convert.ToInt32(row.Cells["col_cantidadVR"].Value);
                 decimal precioUnitario = Convert.ToDecimal(row.Cells["col_precioUnitarioVR"].Value);
-                int stockDisponible = Convert.ToInt32(gridVentaProducto.Rows[e.RowIndex].Cells["ColStock"].Value);
-
+                int stockDisponible = Productos.getStockDisp(int.Parse(gridRealizarVenta.Rows[e.RowIndex].Cells["Col_proId"].Value.ToString()));//Convert.ToInt32(gridVentaProducto.Rows[e.RowIndex].Cells["ColStock"].Value);
+                
+                //Console.WriteLine($"Row {e.RowIndex} cant {cantidad} disp {stockDisponible} id {gridRealizarVenta.Rows[e.RowIndex].Cells["Col_proId"].Value}");
+                
                 if (cantidad > stockDisponible)
                 {
                     MessageBox.Show("No hay stock suficiente", "Stock insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Warning);

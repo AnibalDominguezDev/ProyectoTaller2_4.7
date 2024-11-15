@@ -212,5 +212,10 @@ namespace ProyectoTaller2.C_Logica
         {
             return DProductos.getMostSellingCategories(inicio,fin);
         }
+
+        public static int getStockDisp(int id)
+        {
+            return DProductos.getCurrentStock(id);
+        }
     }
 }
